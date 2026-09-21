@@ -17,7 +17,8 @@ def load_data():
             "TENSIÓN_INTENSIDAD": "400 V / 720 A",
             "CAPACIDAD_ACEITE": "36 Litros (15W-40 VDS-3/VDS-4)",
             "CAPACIDAD_REFRIGERANTE": "44 Litros (Volvo VCS Amarillo)",
-            "UBICACIÓN": "Planta General"
+            "UBICACIÓN": "Planta General",
+            "MANUAL_URL": "https://drive.google.com/drive/folders/1D3MO3ZPeIJhADQctk4X0XrHBAQUiYOQQ?usp=sharing"
         },
         {
             "ID_GRUPO": "G-002",
@@ -31,7 +32,8 @@ def load_data():
             "TENSIÓN_INTENSIDAD": "380 V / 1519 A",
             "CAPACIDAD_ACEITE": "127 Litros (15W-40 API CH-4/CI-4)",
             "CAPACIDAD_REFRIGERANTE": "143 Litros (Anticongelante 50%)",
-            "UBICACIÓN": "Ciudad Deportiva 7 Palmas (Estadio G.C.)"
+            "UBICACIÓN": "Ciudad Deportiva 7 Palmas (Estadio G.C.)",
+            "MANUAL_URL": "https://www.perkins.com/en_GB/aftermarket/manuals.html"
         }
     ])
 
@@ -86,7 +88,6 @@ st.title("⚡ Gestión de Flota de Generadores")
 
 grupos, repuestos, mantenimientos, averias = load_data()
 
-# Navegación Lateral
 st.sidebar.header("Navegación")
 option = st.sidebar.radio("Ir a:", ["Ver Generadores"])
 
@@ -101,7 +102,7 @@ else:
     
     st.subheader(f"📍 {selected_grupo['NOMBRE_GRUPO']}")
     
-    tab1, tab2, tab3, tab4 = st.tabs(["📋 Ficha Técnica", "📦 Repuestos", "🛠️ Mantenimiento", "🚨 Averías"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["📋 Ficha Técnica", "📦 Repuestos", "🛠️ Mantenimiento", "🚨 Averías", "📖 Manuales"])
     
     with tab1:
         st.markdown("### Datos Técnicos del Equipo")
@@ -150,3 +151,11 @@ else:
             for idx, row in aver_m.iterrows():
                 with st.expander(f"🔴 {row['CODIGO_ERROR']} - {row['SINTOMA']}"):
                     st.write(f"**Solución de taller:** {row['SOLUCION']}")
+
+    with tab5:
+        st.markdown("### 📖 Manuales y Documentación")
+        st.write("Acceso directo a la documentación oficial:")
+        if grupo_id == "G-001":
+            st.link_button("📂 Abrir Carpeta de Manuales Volvo Penta en Google Drive", selected_grupo["MANUAL_URL"])
+        elif grupo_id == "G-002":
+            st.link_button("📄 Abrir Manual Perkins Serie 4000", selected_grupo["MANUAL_URL"])
