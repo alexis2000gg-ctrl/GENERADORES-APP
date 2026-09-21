@@ -17,8 +17,10 @@ def load_data():
             "TENSIÓN_INTENSIDAD": "400 V / 720 A",
             "CAPACIDAD_ACEITE": "36 Litros (15W-40 VDS-3/VDS-4)",
             "CAPACIDAD_REFRIGERANTE": "44 Litros (Volvo VCS Amarillo)",
+            "CONTROLADORA": "Deep Sea Electronics DSE 7320",
+            "OPERACION_CONTROLADORA": "• AUTO: Arranque automático por fallo de red.\n• MANUAL (Mano) + START (I): Arranque manual de taller.\n• STOP (O): Parada y rearmado de alarmas.",
             "UBICACIÓN": "Planta General",
-            "MANUAL_URL": "https://drive.google.com/drive/folders/1D3MO3ZPeIJhADQctk4X0XrHBAQUiYOQQ?usp=sharing"
+            "MANUAL_URL": "https://drive.google.com/drive/folders/1W777DzFCpfLVeABKfcZnTJPcQbNSc5_-?usp=sharing"
         },
         {
             "ID_GRUPO": "G-002",
@@ -32,8 +34,11 @@ def load_data():
             "TENSIÓN_INTENSIDAD": "380 V / 1519 A",
             "CAPACIDAD_ACEITE": "127 Litros (15W-40 API CH-4/CI-4)",
             "CAPACIDAD_REFRIGERANTE": "143 Litros (Anticongelante 50%)",
+            "CONTROLADORA": "Electra Molins AUT-MP10 + Analizador Circutor CVM 96",
+            "OPERACION_CONTROLADORA": "• Selector de llave: AUTOMÁTICO / PARO / PRUEBAS.\n• Botón R: Rearme de alarmas y reseteo.\n• CVM 96: Lectura digital de parámetros de red y tensión.",
             "UBICACIÓN": "Ciudad Deportiva 7 Palmas (Estadio G.C.)",
-            "MANUAL_URL": "https://www.perkins.com/en_GB/aftermarket/manuals.html"
+            "MANUAL_URL": "https://www.perkins.com/en_GB/aftermarket/manuals.html",
+            "MANUAL_CONTROLADORA_URL": "https://www.electramolins.com/"
         }
     ])
 
@@ -70,7 +75,7 @@ def load_data():
     ])
 
     averias = pd.DataFrame([
-        # G-001 Matriz Expandida de Averías Volvo Penta EDC7
+        # G-001
         {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 94 / PPID 6", "SINTOMA": "Baja Presión de Gasoil (pérdida de potencia / tirones)", "SOLUCION": "Cambiar filtro principal (5µ) y prefiltro decantador. Purgar aire manualmente con bomba de cebado."},
         {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 100", "SINTOMA": "Baja Presión de Aceite (alarma y parada de emergencia)", "SOLUCION": "Comprobar nivel (36L 15W-40). Cambiar 2 filtros principales + 1 bypass. Inspeccionar presostato."},
         {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 102", "SINTOMA": "Baja Presión de Turbo / Sobrealimentación", "SOLUCION": "Revisar manguitos/abrazaderas de admisión, limpiar sensor MAP o comprobar holgura en turbocompresor."},
@@ -128,6 +133,11 @@ else:
         
         if 'UBICACIÓN' in selected_grupo and pd.notna(selected_grupo['UBICACIÓN']):
             st.info(f"**Ubicación:** {selected_grupo['UBICACIÓN']}")
+
+        st.markdown("---")
+        st.markdown("### 🎛️ Centralita y Cuadro de Control")
+        st.success(f"**Modelo de Controladora:** {selected_grupo.get('CONTROLADORA', 'N/D')}")
+        st.write(selected_grupo.get('OPERACION_CONTROLADORA', ''))
             
     with tab2:
         st.markdown("### 📦 Enciclopedia de Recambios y Filtros")
@@ -159,9 +169,16 @@ else:
                     st.write(f"**Solución de taller:** {row['SOLUCION']}")
 
     with tab5:
-        st.markdown("### 📖 Manuales y Documentación")
-        st.write("Acceso directo a la documentación oficial:")
+        st.markdown("### 📖 Manuales y Documentación Taller")
+        st.write("Acceso a la carpeta de documentación del grupo:")
+        
         if grupo_id == "G-001":
-            st.link_button("📂 Abrir Carpeta de Manuales Volvo Penta en Google Drive", selected_grupo["MANUAL_URL"])
+            st.link_button("📂 Abrir Carpeta de Manuales Grupo 1 en Google Drive (Volvo / DSE 7320)", selected_grupo["MANUAL_URL"])
         elif grupo_id == "G-002":
-            st.link_button("📄 Abrir Manual Perkins Serie 4000", selected_grupo["MANUAL_URL"])
+            col_m1, col_m2 = st.columns(2)
+            with col_m1:
+                st.markdown("#### ⚙️ Motor / Grupo")
+                st.link_button("📄 Manual Perkins Serie 4000", selected_grupo["MANUAL_URL"])
+            with col_m2:
+                st.markdown("#### 🎛️ Centralita / Controladora")
+                st.link_button("📄 Manual Cuadro AUT-MP10", selected_grupo["MANUAL_CONTROLADORA_URL"])
