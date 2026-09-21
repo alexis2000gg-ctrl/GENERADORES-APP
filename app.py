@@ -70,11 +70,17 @@ def load_data():
     ])
 
     averias = pd.DataFrame([
-        # G-001
+        # G-001 Matriz Expandida de Averías Volvo Penta EDC7
         {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 94 / PPID 6", "SINTOMA": "Baja Presión de Gasoil (pérdida de potencia / tirones)", "SOLUCION": "Cambiar filtro principal (5µ) y prefiltro decantador. Purgar aire manualmente con bomba de cebado."},
-        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 100", "SINTOMA": "Baja Presión de Aceite (alarma y parada de emergencia)", "SOLUCION": "Comprobar nivel (36L 15W-40). Cambiar filtros principales y bypass. Inspeccionar presostato."},
+        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 100", "SINTOMA": "Baja Presión de Aceite (alarma y parada de emergencia)", "SOLUCION": "Comprobar nivel (36L 15W-40). Cambiar 2 filtros principales + 1 bypass. Inspeccionar presostato."},
+        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 102", "SINTOMA": "Baja Presión de Turbo / Sobrealimentación", "SOLUCION": "Revisar manguitos/abrazaderas de admisión, limpiar sensor MAP o comprobar holgura en turbocompresor."},
+        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 105", "SINTOMA": "Alta Temperatura en Aire de Admisión (humo negro)", "SOLUCION": "Limpiar panal intercooler Air-to-Air a presión y apretar manguitos post-turbo."},
         {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 110", "SINTOMA": "Alta Temperatura de Refrigerante (>98°C)", "SOLUCION": "Rellenar anticongelante Volvo VCS, soplar radiador con aire a presión y revisar tensión de correas."},
-        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 105", "SINTOMA": "Alta Temperatura en Aire de Admisión (humo negro)", "SOLUCION": "Limpiar panal intercooler Air-to-Air y apretar/cambiar manguitos post-turbo."},
+        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 111", "SINTOMA": "Nivel Bajo de Líquido Refrigerante", "SOLUCION": "Buscar fugas externas en bomba/manguitos, rellenar vaso de expansión o revisar sonda de nivel."},
+        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 158", "SINTOMA": "Tensión Anormal de Batería en Centralita EDC7", "SOLUCION": "Comprobar alternador de carga (24V), apretar bornes sulfatados y revisar cargador de baterías de red."},
+        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 190 / SID 21", "SINTOMA": "Fallo Sensor de Régimen / RPM (volante o árbol levas)", "SOLUCION": "Limpiar virutas metálicas en captadores inductivos del volante/árbol o cambiar sensor de velocidad."},
+        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "SID 1 a 6", "SINTOMA": "Error de Inyector-Bomba (Cilindros 1 al 6)", "SOLUCION": "Revisar cableado del arnés interno bajo tapa de balancines. Comprobar bobina del inyector o reemplazarlo."},
+        {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PSID 201", "SINTOMA": "Fallo de Comunicación CAN Bus (EDC7 - Cuadro)", "SOLUCION": "Comprobar cableado de par trenzado CAN-Hi/CAN-Lo y resistencias de terminación de 120 Ω."},
         
         # G-002
         {"ID_GRUPO": "G-002", "CODIGO_ERROR": "Fallo de Arranque (AUT-MP10)", "SINTOMA": "El cuadro intenta 3 arranques y bloquea el grupo", "SOLUCION": "Aire en colector V8 o prefiltro atascado. Cambiar filtro 26560143 y purgar bomba manual."},
