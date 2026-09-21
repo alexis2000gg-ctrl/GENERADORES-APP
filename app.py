@@ -6,38 +6,7 @@ st.set_page_config(page_title="Gestión de Generadores", page_icon="⚡", layout
 
 EXCEL_FILE = "Estructura_Base_Grupos.xlsx"
 
-def load_data():
-    if os.path.exists(EXCEL_FILE):
-        try:
-            grupos = pd.read_excel(EXCEL_FILE, sheet_name="Grupos")
-            repuestos = pd.read_excel(EXCEL_FILE, sheet_name="Repuestos") if "Repuestos" in pd.ExcelFile(EXCEL_FILE).sheet_names else get_default_repuestos()
-            mantenimientos = pd.read_excel(EXCEL_FILE, sheet_name="Mantenimientos")
-            averias = pd.read_excel(EXCEL_FILE, sheet_name="Averias")
-            return grupos, repuestos, mantenimientos, averias
-        except Exception:
-            pass
-    return get_default_data()
-
-def get_default_repuestos():
-    return pd.DataFrame([
-        # G-001 Repuestos (Volvo Penta TAD1341GE)
-        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aceite Principal (x2)", "OEM": "Volvo 21707133", "MANN": "W 11 102/34", "FLEETGUARD": "LF16015", "DONALDSON": "P550529"},
-        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aceite Bypass (x1)", "OEM": "Volvo 21707132", "MANN": "WP 11 102/11", "FLEETGUARD": "LF9009", "DONALDSON": "P550425"},
-        {"ID_GRUPO": "G-001", "TIPO": "Filtro Gasoil Principal (5µ)", "OEM": "Volvo 21707134", "MANN": "WK 11 010 x", "FLEETGUARD": "FF5632", "DONALDSON": "P550881"},
-        {"ID_GRUPO": "G-001", "TIPO": "Prefiltro Decantador Gasoil", "OEM": "Volvo 21380475", "MANN": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010"},
-        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aire Principal", "OEM": "Volvo 21834205", "MANN": "C 30 1530", "FLEETGUARD": "AF26163", "DONALDSON": "P608533"},
-        {"ID_GRUPO": "G-001", "TIPO": "Correa Alternador / Ventilador", "OEM": "Volvo 21408603", "MANN": "-", "FLEETGUARD": "-", "DONALDSON": "-"},
-        
-        # G-002 Repuestos (Perkins 4008TAG1 / Stamford)
-        {"ID_GRUPO": "G-002", "TIPO": "Filtro Aceite Principal (x3-4)", "OEM": "Perkins CH10929", "MANN": "WD 13 145", "FLEETGUARD": "LF3828", "DONALDSON": "P550388"},
-        {"ID_GRUPO": "G-002", "TIPO": "Filtro Gasoil Principal", "OEM": "Perkins 26560143", "MANN": "WK 8110", "FLEETGUARD": "FF5052", "DONALDSON": "P550008"},
-        {"ID_GRUPO": "G-002", "TIPO": "Prefiltro Decantador Gasoil", "OEM": "Perkins 26560201", "MANN": "-", "FLEETGUARD": "FS1251", "DONALDSON": "P551329"},
-        {"ID_GRUPO": "G-002", "TIPO": "Filtro Aire Principal (x2)", "OEM": "Perkins SEV551/4", "MANN": "C 30 850/2", "FLEETGUARD": "AF25223", "DONALDSON": "P182054"},
-        {"ID_GRUPO": "G-002", "TIPO": "Diodos Rectificadores Alternador", "OEM": "Stamford RSK6001", "MANN": "-", "FLEETGUARD": "-", "DONALDSON": "-"},
-        {"ID_GRUPO": "G-002", "TIPO": "Regulador Tensión AVR", "OEM": "Stamford MX321/MX341", "MANN": "-", "FLEETGUARD": "-", "DONALDSON": "-"}
-    ])
-
-def get_default_data():
+def get_full_data():
     grupos = pd.DataFrame([
         {
             "ID_GRUPO": "G-001",
@@ -68,8 +37,24 @@ def get_default_data():
             "UBICACIÓN": "Ciudad Deportiva 7 Palmas (Estadio G.C.)"
         }
     ])
-    
-    repuestos = get_default_repuestos()
+
+    repuestos = pd.DataFrame([
+        # G-001
+        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aceite Principal (x2)", "OEM": "Volvo 21707133", "MANN": "W 11 102/34", "FLEETGUARD": "LF16015", "DONALDSON": "P550529"},
+        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aceite Bypass (x1)", "OEM": "Volvo 21707132", "MANN": "WP 11 102/11", "FLEETGUARD": "LF9009", "DONALDSON": "P550425"},
+        {"ID_GRUPO": "G-001", "TIPO": "Filtro Gasoil Principal (5µ)", "OEM": "Volvo 21707134", "MANN": "WK 11 010 x", "FLEETGUARD": "FF5632", "DONALDSON": "P550881"},
+        {"ID_GRUPO": "G-001", "TIPO": "Prefiltro Decantador Gasoil", "OEM": "Volvo 21380475", "MANN": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010"},
+        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aire Principal", "OEM": "Volvo 21834205", "MANN": "C 30 1530", "FLEETGUARD": "AF26163", "DONALDSON": "P608533"},
+        {"ID_GRUPO": "G-001", "TIPO": "Correa Alternador / Ventilador", "OEM": "Volvo 21408603", "MANN": "-", "FLEETGUARD": "-", "DONALDSON": "-"},
+        
+        # G-002
+        {"ID_GRUPO": "G-002", "TIPO": "Filtro Aceite Principal (x3-4)", "OEM": "Perkins CH10929", "MANN": "WD 13 145", "FLEETGUARD": "LF3828", "DONALDSON": "P550388"},
+        {"ID_GRUPO": "G-002", "TIPO": "Filtro Gasoil Principal", "OEM": "Perkins 26560143", "MANN": "WK 8110", "FLEETGUARD": "FF5052", "DONALDSON": "P550008"},
+        {"ID_GRUPO": "G-002", "TIPO": "Prefiltro Decantador Gasoil", "OEM": "Perkins 26560201", "MANN": "-", "FLEETGUARD": "FS1251", "DONALDSON": "P551329"},
+        {"ID_GRUPO": "G-002", "TIPO": "Filtro Aire Principal (x2)", "OEM": "Perkins SEV551/4", "MANN": "C 30 850/2", "FLEETGUARD": "AF25223", "DONALDSON": "P182054"},
+        {"ID_GRUPO": "G-002", "TIPO": "Diodos Rectificadores Alternador", "OEM": "Stamford RSK6001", "MANN": "-", "FLEETGUARD": "-", "DONALDSON": "-"},
+        {"ID_GRUPO": "G-002", "TIPO": "Regulador Tensión AVR", "OEM": "Stamford MX321/MX341", "MANN": "-", "FLEETGUARD": "-", "DONALDSON": "-"}
+    ])
 
     mantenimientos = pd.DataFrame([
         # G-001
@@ -106,6 +91,22 @@ def save_data(grupos, repuestos, mantenimientos, averias):
         repuestos.to_excel(writer, sheet_name="Repuestos", index=False)
         mantenimientos.to_excel(writer, sheet_name="Mantenimientos", index=False)
         averias.to_excel(writer, sheet_name="Averias", index=False)
+
+def load_data():
+    if os.path.exists(EXCEL_FILE):
+        try:
+            grupos = pd.read_excel(EXCEL_FILE, sheet_name="Grupos")
+            if "ELECTRA MOLINS" in grupos.to_string():
+                repuestos = pd.read_excel(EXCEL_FILE, sheet_name="Repuestos")
+                mantenimientos = pd.read_excel(EXCEL_FILE, sheet_name="Mantenimientos")
+                averias = pd.read_excel(EXCEL_FILE, sheet_name="Averias")
+                return grupos, repuestos, mantenimientos, averias
+        except Exception:
+            pass
+            
+    grupos, repuestos, mantenimientos, averias = get_full_data()
+    save_data(grupos, repuestos, mantenimientos, averias)
+    return grupos, repuestos, mantenimientos, averias
 
 st.title("⚡ Gestión de Flota de Generadores")
 
@@ -145,7 +146,7 @@ if option == "Ver Generadores":
                 st.write(f"**Capacidad Aceite:** {selected_grupo['CAPACIDAD_ACEITE']}")
                 st.write(f"**Capacidad Refrigerante:** {selected_grupo['CAPACIDAD_REFRIGERANTE']}")
             
-            if 'UBICACIÓN' in selected_grupo:
+            if 'UBICACIÓN' in selected_grupo and pd.notna(selected_grupo['UBICACIÓN']):
                 st.info(f"**Ubicación:** {selected_grupo['UBICACIÓN']}")
                 
         with tab2:
