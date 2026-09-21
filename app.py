@@ -4,7 +4,7 @@ import os
 
 st.set_page_config(page_title="Gestión de Generadores", page_icon="⚡", layout="centered")
 
-EXCEL_FILE = "Estructura_Base_Grupos.xlsx"
+EXCEL_FILE = "Estructura_Base_Grupos_v2.xlsx"
 
 def get_full_data():
     grupos = pd.DataFrame([
