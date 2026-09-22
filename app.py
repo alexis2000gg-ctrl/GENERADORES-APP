@@ -5,6 +5,7 @@ st.set_page_config(page_title="Gestión de Flota de Generadores", page_icon="⚡
 
 def load_data():
     grupos = pd.DataFrame([
+        # --- HOTELES DUNAS ---
         # G-001
         {
             "ID_GRUPO": "G-001",
@@ -56,7 +57,7 @@ def load_data():
             "UBICACIÓN": "Hotel Maspalomas Resort",
             "NOMBRE_GRUPO": "G-003 | Hotel Maspalomas Resort (GENESAL 550 kVA)",
             "MARCA": "DEUTZ / GENESAL",
-            "MODELO_GRUPO": "GDDL550",
+            "MODELO_GRUPO": "GDDL 550 AM",
             "SERIE_GRUPO": "1808",
             "MARCA_MOTOR": "DEUTZ",
             "MODELO_MOTOR": "BF 8 M 1015 CP (V8 Turbo Intercooler)",
@@ -67,8 +68,8 @@ def load_data():
             "TENSIÓN_INTENSIDAD": "400 V / 793 A",
             "CAPACIDAD_ACEITE": "45 Litros (15W-40 Deutz DQC III-10)",
             "CAPACIDAD_REFRIGERANTE": "65 Litros (Circuito V8)",
-            "CONTROLADORA": "Centralita Automática Genesal / DSE",
-            "OPERACION_CONTROLADORA": "• Selector Manual/Auto.\n• Test en vacío semanal recomendado.",
+            "CONTROLADORA": "GENESAL Ge2000",
+            "OPERACION_CONTROLADORA": "• AUTO / MAN: Selecciona el modo de trabajo.\n• ARRANQUE (Verde) / STOP (Rojo): Arranque/Parada manual de taller.\n• STOP (Rojo): Mantenido borra y resetea las alarmas.\n• Control Manual KG (V/G): Conmutación manual de contactores Red/Grupo.",
             "MANUAL_URL": "https://drive.google.com/drive/folders/1W777DzFCpfLVeABKfcZnTJPcQbNSc5_-?usp=sharing"
         },
         # G-004
@@ -78,7 +79,7 @@ def load_data():
             "UBICACIÓN": "Hotel Dunas Suites",
             "NOMBRE_GRUPO": "G-004 | Hotel Dunas Suites (CATERPILLAR 635 kVA)",
             "MARCA": "CATERPILLAR",
-            "MODELO_GRUPO": "CAT 635",
+            "MODELO_GRUPO": "CAT 3412",
             "SERIE_GRUPO": "S/N CAT",
             "MARCA_MOTOR": "CATERPILLAR",
             "MODELO_MOTOR": "3412TTA (V12 Biturbo)",
@@ -89,89 +90,129 @@ def load_data():
             "TENSIÓN_INTENSIDAD": "400 V / 916 A",
             "CAPACIDAD_ACEITE": "68 Litros (CAT DEO 15W-40)",
             "CAPACIDAD_REFRIGERANTE": "90 Litros (CAT ELC Orgánico)",
-            "CONTROLADORA": "Caterpillar EMCP / Control Panel",
-            "OPERACION_CONTROLADORA": "• Panel EMCP: Diagnóstico numérico por códigos CAT.\n• Pulsador Parada de Emergencia en frontal.",
+            "CONTROLADORA": "Caterpillar EMCP II / EMCP Control Panel",
+            "OPERACION_CONTROLADORA": "• RUN / AUTO / OFF: Selector principal de modo.\n• ENGINE CONTROL SWITCH: Posición RUN para arranque manual inmediato.\n• ALARM RESET: Pulsador amarillo/rojo para borrar códigos de falla en pantalla.\n• DISPLAY SCROLL: Navega entre presión de aceite, temp. agua y horómetro.",
             "MANUAL_URL": "https://drive.google.com/drive/folders/1W777DzFCpfLVeABKfcZnTJPcQbNSc5_-?usp=sharing"
+        },
+        # --- LIDL ---
+        # G-005
+        {
+            "ID_GRUPO": "G-005",
+            "CLIENTE": "LIDL",
+            "UBICACIÓN": "LIDL Telde Arnao (Gran Canaria)",
+            "NOMBRE_GRUPO": "G-005 | LIDL Telde Arnao (CAT 217.5 kVA)",
+            "MARCA": "CATERPILLAR",
+            "MODELO_GRUPO": "DE220GC",
+            "SERIE_GRUPO": "CATDE220JN7500106",
+            "MARCA_MOTOR": "CATERPILLAR (Perkins)",
+            "MODELO_MOTOR": "C7.1 (7.01L - 6L)",
+            "SERIE_MOTOR": "KRG09407 (Arrangement: 605-2287)",
+            "ALTERNADOR": "CATERPILLAR Series SR500 (A2637L41)",
+            "SERIE_ALTERNADOR": "N7L00267",
+            "POTENCIA_PRIME": "217.5 kVA / 174 kW (Standby)",
+            "TENSIÓN_INTENSIDAD": "400/230 V / 314 A (1500 RPM)",
+            "CAPACIDAD_ACEITE": "16.5 Litros (CAT DEO 15W-40)",
+            "CAPACIDAD_REFRIGERANTE": "27 Litros (CAT ELC)",
+            "CONTROLADORA": "Caterpillar GCCP 1.2",
+            "OPERACION_CONTROLADORA": "• Pantalla LCD con control de arranque automático por fallo de red.\n• Pulsador Modo Manual / Modo Auto.\n• Botón Reset / Stop para acallar alarmas de fallo.",
+            "MANUAL_URL": "https://drive.google.com"
         }
     ])
 
     repuestos = pd.DataFrame([
         # G-001 Volvo Penta TAD1341GE
-        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aceite Principal (x2)", "OEM": "Volvo 21707133", "MANN": "W 11 102/34", "FLEETGUARD": "LF16015", "DONALDSON": "P550529"},
-        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aceite Bypass (x1)", "OEM": "Volvo 21707132", "MANN": "WP 11 102/11", "FLEETGUARD": "LF9009", "DONALDSON": "P550425"},
-        {"ID_GRUPO": "G-001", "TIPO": "Filtro Gasoil Principal (5µ)", "OEM": "Volvo 21707134", "MANN": "WK 11 010 x", "FLEETGUARD": "FF5632", "DONALDSON": "P550881"},
-        {"ID_GRUPO": "G-001", "TIPO": "Prefiltro Decantador Gasoil", "OEM": "Volvo 21380475", "MANN": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010"},
-        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aire Principal", "OEM": "Volvo 21834205", "MANN": "C 30 1530", "FLEETGUARD": "AF26163", "DONALDSON": "P608533"},
+        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aceite Principal (x2)", "OEM / ORIGINAL": "Volvo 21707133", "MANN-FILTER": "W 11 102/34", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230 / 901-102", "BALDWIN / OTRAS": "BALDWIN B7299"},
+        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aceite Bypass (x1)", "OEM / ORIGINAL": "Volvo 21707132", "MANN-FILTER": "WP 11 102/11", "FLEETGUARD": "LF9009", "DONALDSON": "P550425", "FG WILSON": "10000-51231 / 901-103", "BALDWIN / OTRAS": "BALDWIN B7225"},
+        {"ID_GRUPO": "G-001", "TIPO": "Filtro Gasoil Principal (5µ)", "OEM / ORIGINAL": "Volvo 21707134", "MANN-FILTER": "WK 11 010 x", "FLEETGUARD": "FF5632", "DONALDSON": "P550881", "FG WILSON": "10000-59651 / 901-248", "BALDWIN / OTRAS": "BALDWIN BF7814"},
+        {"ID_GRUPO": "G-001", "TIPO": "Prefiltro Decantador Gasoil", "OEM / ORIGINAL": "Volvo 21380475", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609 / 901-228", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
+        {"ID_GRUPO": "G-001", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Volvo 21834205", "MANN-FILTER": "C 30 1530", "FLEETGUARD": "AF26163", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS5387"},
 
         # G-002 IVECO AIFO 8281SRJ26 (V8)
-        {"ID_GRUPO": "G-002", "TIPO": "Filtro Aceite Principal (x2)", "OEM": "Iveco 1907584 / 2992242", "MANN": "W 11 102", "FLEETGUARD": "LF3880", "DONALDSON": "P550425"},
-        {"ID_GRUPO": "G-002", "TIPO": "Filtro Gasoil Principal (x2)", "OEM": "Iveco 1902138", "MANN": "WK 842", "FLEETGUARD": "FF5052", "DONALDSON": "P550008"},
-        {"ID_GRUPO": "G-002", "TIPO": "Prefiltro Decantador Gasoil", "OEM": "Iveco 1908547", "MANN": "WK 1060", "FLEETGUARD": "FS1251", "DONALDSON": "P551329"},
-        {"ID_GRUPO": "G-002", "TIPO": "Filtro Aire Principal", "OEM": "Himoinsa 1903210", "MANN": "C 30 850/2", "FLEETGUARD": "AF25223", "DONALDSON": "P182054"},
-        {"ID_GRUPO": "G-002", "TIPO": "Correa Ventilador / Alternador", "OEM": "Iveco 4841793", "MANN": "-", "FLEETGUARD": "-", "DONALDSON": "-"},
+        {"ID_GRUPO": "G-002", "TIPO": "Filtro Aceite Principal (x2)", "OEM / ORIGINAL": "Iveco 1907584 / 2992242", "MANN-FILTER": "W 11 102", "FLEETGUARD": "LF3880", "DONALDSON": "P550425", "FG WILSON": "10000-51229 / 901-102", "BALDWIN / OTRAS": "BALDWIN B7120"},
+        {"ID_GRUPO": "G-002", "TIPO": "Filtro Gasoil Principal (x2)", "OEM / ORIGINAL": "Iveco 1902138", "MANN-FILTER": "WK 842", "FLEETGUARD": "FF5052", "DONALDSON": "P550008", "FG WILSON": "10000-00339 / 901-202", "BALDWIN / OTRAS": "BALDWIN BF825"},
+        {"ID_GRUPO": "G-002", "TIPO": "Prefiltro Decantador Gasoil", "OEM / ORIGINAL": "Iveco 1908547", "MANN-FILTER": "WK 1060", "FLEETGUARD": "FS1251", "DONALDSON": "P551329", "FG WILSON": "10000-12609 / 901-228", "BALDWIN / OTRAS": "BALDWIN BF1212"},
+        {"ID_GRUPO": "G-002", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Himoinsa 1903210 / Iveco 1903210", "MANN-FILTER": "C 30 850/2", "FLEETGUARD": "AF25223", "DONALDSON": "P182054", "FG WILSON": "996-452 / 901-016", "BALDWIN / OTRAS": "BALDWIN RS3518"},
+        {"ID_GRUPO": "G-002", "TIPO": "Correa Ventilador / Alternador", "OEM / ORIGINAL": "Iveco 4841793", "MANN-FILTER": "GATES 8554-10825", "FLEETGUARD": "DAYCO 13A1075C", "DONALDSON": "CONTITECH AVX13X1075", "FG WILSON": "915-020", "BALDWIN / OTRAS": "OPTIBELT AVX 13 x 1075"},
 
         # G-003 DEUTZ BF 8 M 1015 CP (V8)
-        {"ID_GRUPO": "G-003", "TIPO": "Filtro Aceite Principal (x2)", "OEM": "Deutz 01182912", "MANN": "W 11 102/16", "FLEETGUARD": "LF3997", "DONALDSON": "P550425"},
-        {"ID_GRUPO": "G-003", "TIPO": "Filtro Gasoil Principal (x2)", "OEM": "Deutz 01180597", "MANN": "WK 940/20", "FLEETGUARD": "FF5485", "DONALDSON": "P553004"},
-        {"ID_GRUPO": "G-003", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM": "Deutz 04152512", "MANN": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010"},
-        {"ID_GRUPO": "G-003", "TIPO": "Filtro Aire Principal (V8)", "OEM": "Deutz 01180872", "MANN": "C 30 1500", "FLEETGUARD": "AF25431", "DONALDSON": "P777868"},
-        {"ID_GRUPO": "G-003", "TIPO": "Filtro Aire Seguridad (Interior)", "OEM": "Deutz 01180873", "MANN": "CF 1500", "FLEETGUARD": "AF25432", "DONALDSON": "P777869"},
+        {"ID_GRUPO": "G-003", "TIPO": "Filtro Aceite Principal (x2)", "OEM / ORIGINAL": "Deutz 01182912", "MANN-FILTER": "W 11 102/16", "FLEETGUARD": "LF3997", "DONALDSON": "P550425", "FG WILSON": "10000-51229 / 901-102", "BALDWIN / OTRAS": "BALDWIN B7180"},
+        {"ID_GRUPO": "G-003", "TIPO": "Filtro Gasoil Principal (x2)", "OEM / ORIGINAL": "Deutz 01180597", "MANN-FILTER": "WK 940/20", "FLEETGUARD": "FF5485", "DONALDSON": "P553004", "FG WILSON": "10000-00339 / 901-214", "BALDWIN / OTRAS": "BALDWIN BF7632"},
+        {"ID_GRUPO": "G-003", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Deutz 04152512", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609 / 901-228", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
+        {"ID_GRUPO": "G-003", "TIPO": "Filtro Aire Principal (V8)", "OEM / ORIGINAL": "Deutz 01180872", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF25431", "DONALDSON": "P777868", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"},
+        {"ID_GRUPO": "G-003", "TIPO": "Filtro Aire Seguridad (Interior)", "OEM / ORIGINAL": "Deutz 01180873", "MANN-FILTER": "CF 1500", "FLEETGUARD": "AF25432", "DONALDSON": "P777869", "FG WILSON": "901-049", "BALDWIN / OTRAS": "BALDWIN RS3999"},
 
         # G-004 CATERPILLAR 3412TTA (V12)
-        {"ID_GRUPO": "G-004", "TIPO": "Filtro Aceite Alta Eficiencia (x2)", "OEM": "CAT 1R-1808", "MANN": "WD 13 145/4", "FLEETGUARD": "LF9009", "DONALDSON": "P551808"},
-        {"ID_GRUPO": "G-004", "TIPO": "Filtro Gasoil Secundario (x2)", "OEM": "CAT 1R-0749", "MANN": "WK 8117", "FLEETGUARD": "FF5319", "DONALDSON": "P551315"},
-        {"ID_GRUPO": "G-004", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM": "CAT 1R-0770 / 133-5673", "MANN": "WK 1080/1", "FLEETGUARD": "FS19820", "DONALDSON": "P550625"},
-        {"ID_GRUPO": "G-004", "TIPO": "Filtro Aire Principal (x2 V12)", "OEM": "CAT 6I-2505", "MANN": "C 33 920/3", "FLEETGUARD": "AF25138", "DONALDSON": "P532505"},
-        {"ID_GRUPO": "G-004", "TIPO": "Filtro Agua / Refrigerante", "OEM": "CAT 9N-3366", "MANN": "WA 940/1", "FLEETGUARD": "WF2075", "DONALDSON": "P552075"}
+        {"ID_GRUPO": "G-004", "TIPO": "Filtro Aceite Alta Eficiencia (x2)", "OEM / ORIGINAL": "CAT 1R-1808", "MANN-FILTER": "WD 13 145/4", "FLEETGUARD": "LF9009", "DONALDSON": "P551808", "FG WILSON": "10000-51230 / 901-115", "BALDWIN / OTRAS": "BALDWIN B7299"},
+        {"ID_GRUPO": "G-004", "TIPO": "Filtro Gasoil Secundario (x2)", "OEM / ORIGINAL": "CAT 1R-0749", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5319", "DONALDSON": "P551315", "FG WILSON": "10000-59651 / 901-248", "BALDWIN / OTRAS": "BALDWIN BF7587"},
+        {"ID_GRUPO": "G-004", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "CAT 1R-0770 / 133-5673", "MANN-FILTER": "WK 1080/1", "FLEETGUARD": "FS19820", "DONALDSON": "P550625", "FG WILSON": "10000-12609 / 901-228", "BALDWIN / OTRAS": "BALDWIN BF1214"},
+        {"ID_GRUPO": "G-004", "TIPO": "Filtro Aire Principal (x2 V12)", "OEM / ORIGINAL": "CAT 6I-2505", "MANN-FILTER": "C 33 920/3", "FLEETGUARD": "AF25138", "DONALDSON": "P532505", "FG WILSON": "996-454 / 901-056", "BALDWIN / OTRAS": "BALDWIN RS3704"},
+        {"ID_GRUPO": "G-004", "TIPO": "Filtro Agua / Refrigerante", "OEM / ORIGINAL": "CAT 9N-3366", "MANN-FILTER": "WA 940/1", "FLEETGUARD": "WF2075", "DONALDSON": "P552075", "FG WILSON": "10000-00054 / 901-401", "BALDWIN / OTRAS": "BALDWIN BW5075"},
+
+        # G-005 CATERPILLAR DE220GC (C7.1)
+        {"ID_GRUPO": "G-005", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230 / 901-102", "BALDWIN / OTRAS": "BALDWIN B7299"},
+        {"ID_GRUPO": "G-005", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651 / 901-248", "BALDWIN / OTRAS": "BALDWIN BF9880"},
+        {"ID_GRUPO": "G-005", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 1080/1", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "10000-12609 / 901-228", "BALDWIN / OTRAS": "BALDWIN BF46062"},
+        {"ID_GRUPO": "G-005", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "10000-00339 / 901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
     ])
 
     mantenimientos = pd.DataFrame([
-        # G-001 Volvo
+        # G-001
         {"ID_GRUPO": "G-001", "INTERVALO": "Diario / 10 Hours", "TAREA": "Comprobar nivel de aceite, refrigerante en vaso de expansión, drenar agua del prefiltro e inspección de fugas."},
         {"ID_GRUPO": "G-001", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Cambiar 36L aceite 15W-40 VDS-3/4. Sustituir 2 filtros aceite principales + 1 bypass. Cambiar filtros de gasoil y revisar correas."},
         {"ID_GRUPO": "G-001", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Limpieza de radiador e intercooler. Sustituir filtro de aire. Reglaje de válvulas/taqués del motor Volvo."},
         {"ID_GRUPO": "G-001", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 44L refrigerante Volvo VCS y manguitos de radiador."},
 
-        # G-002 IVECO
+        # G-002
         {"ID_GRUPO": "G-002", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite Cárter IVECO V8 (35L) y nivel de radiador. Purgar condensados de cazoleta de gasoil."},
         {"ID_GRUPO": "G-002", "INTERVALO": "Cada 400 Horas / 12 Meses", "TAREA": "Cambio de 35L aceite 15W-40 ACEA E3/E5. Sustituir 2 filtros de aceite W11102 y par de filtros de combustible WK 842."},
         {"ID_GRUPO": "G-002", "INTERVALO": "Cada 800 Horas / 2 Años", "TAREA": "Sustituir filtro de aire C 30 850/2. Ajuste de taqués en culatas de bloque V8 AIFO."},
         {"ID_GRUPO": "G-002", "INTERVALO": "Cada 1.500 Horas / 3 Años", "TAREA": "Cambio de refrigerante al 50% (50L) y revisión de la bomba de agua de engranajes."},
 
-        # G-003 DEUTZ
+        # G-003
         {"ID_GRUPO": "G-003", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Comprobar nivel de aceite Cárter DEUTZ V8 (45L) e inspeccionar manguitos de aire del intercooler."},
         {"ID_GRUPO": "G-003", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Cambiar 45L aceite Deutz DQC III-10 15W-40. Sustituir 2 filtros de aceite 01182912 y filtros de gasoil 01180597."},
         {"ID_GRUPO": "G-003", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Cambiar cartuchos de aire principal C 30 1500 y de seguridad CF 1500. Limpiar panal exterior del radiador V8."},
         {"ID_GRUPO": "G-003", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 65L de anticongelante orgánico y reglaje de los 8 inyectores bomba PLD."},
 
-        # G-004 CATERPILLAR
+        # G-004
         {"ID_GRUPO": "G-004", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Inspección de nivel en cárter V12 (68L CAT DEO 15W-40) y tensión de baterías de arranque 24V."},
         {"ID_GRUPO": "G-004", "INTERVALO": "Cada 250 Horas / 12 Meses", "TAREA": "Sustitución de 68L de aceite CAT DEO. Cambiar par de filtros de aceite CAT 1R-1808 y par de filtros de gasoil 1R-0749."},
         {"ID_GRUPO": "G-004", "INTERVALO": "Cada 500 Horas / 2 Años", "TAREA": "Sustituir los 2 filtros de aire principales CAT 6I-2505 y el cartucho de tratamiento de agua 9N-3366."},
-        {"ID_GRUPO": "G-004", "INTERVALO": "Cada 1.500 Horas / 3 Años", "TAREA": "Sustituir 90L de líquido refrigerante CAT ELC (Extended Life Coolant) e inspección de turbocompresores gemelos."}
+        {"ID_GRUPO": "G-004", "INTERVALO": "Cada 1.500 Horas / 3 Años", "TAREA": "Sustituir 90L de líquido refrigerante CAT ELC (Extended Life Coolant) e inspección de turbocompresores gemelos."},
+
+        # G-005 CAT C7.1
+        {"ID_GRUPO": "G-005", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (27L) y purgar agua del prefiltro CAT 478-1422."},
+        {"ID_GRUPO": "G-005", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518, filtro de gasoil CAT 389-1085 y prefiltro CAT 478-1422."},
+        {"ID_GRUPO": "G-005", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Inspeccionar tensión de correa de transmisión y soplado exterior del radiador."},
+        {"ID_GRUPO": "G-005", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante orgánico CAT ELC y comprobación de inyectores Common Rail."}
     ])
 
     averias = pd.DataFrame([
-        # G-001 Volvo
+        # G-001
         {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 94 / PPID 6", "SINTOMA": "Baja Presión de Gasoil (pérdida de potencia / tirones)", "SOLUCION": "Cambiar filtro principal (5µ) y prefiltro decantador. Purgar aire manualmente con bomba de cebado."},
         {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 100", "SINTOMA": "Baja Presión de Aceite (alarma y parada de emergencia)", "SOLUCION": "Comprobar nivel (36L 15W-40). Cambiar 2 filtros principales + 1 bypass. Inspeccionar presostato."},
         {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 102", "SINTOMA": "Baja Presión de Turbo / Sobrealimentación", "SOLUCION": "Revisar manguitos/abrazaderas de admisión, limpiar sensor MAP o comprobar holgura en turbocompresor."},
         {"ID_GRUPO": "G-001", "CODIGO_ERROR": "PID 110", "SINTOMA": "Alta Temperatura de Refrigerante (>98°C)", "SOLUCION": "Rellenar anticongelante Volvo VCS, soplar radiador con aire a presión y revisar tensión de correas."},
 
-        # G-002 IVECO
+        # G-002
         {"ID_GRUPO": "G-002", "CODIGO_ERROR": "Alarma Presión Aceite Cárter V8", "SINTOMA": "Caída de presión al subir temperatura de motor AIFO", "SOLUCION": "Comprobar grado de viscosidad (usar 15W-40 E3/E5). Cambiar pares de filtros W11102 o revisar válvula reguladora de bomba de aceite."},
         {"ID_GRUPO": "G-002", "CODIGO_ERROR": "Sobretemperatura Agua en Culatas", "SINTOMA": "Parada por termostato en cuadro Himoinsa CEC7", "SOLUCION": "Limpiar radiador frontal bloqueado por polvo, tensar correa de la bomba de agua 4841793 o cambiar termostatos mecánicos."},
         {"ID_GRUPO": "G-002", "CODIGO_ERROR": "Fallo de Inyección / Humo Blanco", "SINTOMA": "Inestabilidad en ralentí y tirones al coger carga de 440 kVA", "SOLUCION": "Sustituir cartuchos de gasoil WK 842, purgar aire en la bomba lineal Bosch e inspeccionar inyectores de la bancada V8."},
 
-        # G-003 DEUTZ
+        # G-003
         {"ID_GRUPO": "G-003", "CODIGO_ERROR": "Fallo Regulador Electrónico EMR", "SINTOMA": "Incapacidad para mantener 1500 rpm exactas (50 Hz)", "SOLUCION": "Revisar captador inductivo en volante de inercia, limpiar virutas y verificar actuador electromagnético de la bomba inyectora."},
         {"ID_GRUPO": "G-003", "CODIGO_ERROR": "Baja Presión de Cárter V8 Deutz", "SINTOMA": "Luz de advertencia de presión de aceite encendida en cuadro Genesal", "SOLUCION": "Sustituir inmediatamente los 2 filtros de aceite Deutz 01182912 y verificar que no hay dilución de gasoil en cárter."},
         {"ID_GRUPO": "G-003", "CODIGO_ERROR": "Alta Temperatura de Admisión", "SINTOMA": "Humo negro por el escape y reducción automática de kVA", "SOLUCION": "Limpiar panal de intercooler Air-to-Air y cambiar filtros de aire C 30 1500 / CF 1500."},
 
-        # G-004 CATERPILLAR
+        # G-004
         {"ID_GRUPO": "G-004", "CODIGO_ERROR": "CAT Code 39 (Presión Aceite Low)", "SINTOMA": "Parada de emergencia en panel EMCP por baja presión V12", "SOLUCION": "Comprobar nivel en cárter (68L). Cambiar la pareja de filtros CAT 1R-1808. Verificar calibración del sensor de presión de aceite."},
         {"ID_GRUPO": "G-004", "CODIGO_ERROR": "CAT Code 11 (High Coolant Temp)", "SINTOMA": "Disparo por alta temperatura en circuito V12 Biturbo", "SOLUCION": "Comprobar nivel de anticongelante CAT ELC (90L). Limpiar el radiador doble y sustituir el filtro de tratamiento de agua CAT 9N-3366."},
-        {"ID_GRUPO": "G-004", "CODIGO_ERROR": "Fallo Arranque / Solenoide Combustible", "SINTOMA": "El motor gira fuerte pero no abre paso de gasoil", "SOLUCION": "Revisar fusible del solenoide de corte de combustible en el bloque 3412 y limpiar par de prefiltros CAT 1R-0770."}
+        {"ID_GRUPO": "G-004", "CODIGO_ERROR": "Fallo Arranque / Solenoide Combustible", "SINTOMA": "El motor gira fuerte pero no abre paso de gasoil", "SOLUCION": "Revisar fusible del solenoide de corte de combustible en el bloque 3412 y limpiar par de prefiltros CAT 1R-0770."},
+
+        # G-005 CAT C7.1
+        {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Warning / Shutdown Low Oil Pressure", "SINTOMA": "Disparo por baja presión de aceite en panel GCCP 1.2", "SOLUCION": "Comprobar nivel en cárter C7.1 (16.5L). Sustituir filtro CAT 458-7518 y comprobar sensor de presión en bloque de motor."},
+        {"ID_GRUPO": "G-005", "CODIGO_ERROR": "High Coolant Temperature Alarm", "SINTOMA": "Temperatura de agua superior a 98°C bajo carga", "SOLUCION": "Comprobar nivel en vaso de expansión (27L CAT ELC), limpiar radiador exterior y verificar correa de ventilador."},
+        {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Fail to Start / Low Battery Voltage", "SINTOMA": "Intento de arranque fallido en cuadro GCCP 1.2", "SOLUCION": "Comprobar cargador de baterías de 24V del cuadro, bornes sulfatados o presencia de aire en el circuito de gasoil Common Rail."}
     ])
     
     return grupos, repuestos, mantenimientos, averias
@@ -196,7 +237,7 @@ grupo_id = selected_grupo["ID_GRUPO"]
 
 st.subheader(f"📍 {selected_grupo['UBICACIÓN']} — {selected_grupo['MARCA']}")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["📋 Ficha Técnica", "📦 Repuestos", "🛠️ Mantenimiento", "🚨 Averías", "📖 Manuales"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["📋 Ficha Técnica", "📦 Repuestos Multimarca", "🛠️ Mantenimiento", "🚨 Averías", "📖 Manuales"])
 
 with tab1:
     st.markdown("### Datos Técnicos Oficiales")
@@ -224,7 +265,7 @@ with tab1:
     st.write(selected_grupo.get('OPERACION_CONTROLADORA', ''))
 
 with tab2:
-    st.markdown("### 📦 Enciclopedia de Recambios y Filtros")
+    st.markdown("### 📦 Enciclopedia de Recambios y Compatibilidad Multimarca")
     rep_m = repuestos[repuestos["ID_GRUPO"] == grupo_id]
     if rep_m.empty:
         st.info("No hay repuestos registrados para este grupo.")
@@ -255,4 +296,4 @@ with tab4:
 with tab5:
     st.markdown("### 📖 Manuales y Documentación Taller")
     st.write("Acceso a la carpeta compartida de Google Drive del cliente:")
-    st.link_button(f"📂 Abrir Carpeta de Manuales en Google Drive (Hoteles Dunas)", selected_grupo["MANUAL_URL"])
+    st.link_button(f"📂 Abrir Carpeta de Manuales en Google Drive ({selected_grupo['CLIENTE']})", selected_grupo["MANUAL_URL"])
