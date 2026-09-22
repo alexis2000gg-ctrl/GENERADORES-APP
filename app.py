@@ -113,8 +113,30 @@ def load_data():
             "TENSIÓN_INTENSIDAD": "400/230 V / 314 A (1500 RPM)",
             "CAPACIDAD_ACEITE": "16.5 Litros (CAT DEO 15W-40)",
             "CAPACIDAD_REFRIGERANTE": "27 Litros (CAT ELC)",
-            "CONTROLADORA": "Caterpillar GCCP 1.2",
-            "OPERACION_CONTROLADORA": "• Pantalla LCD con control de arranque automático por fallo de red.\n• Pulsador Modo Manual / Modo Auto.\n• Botón Reset / Stop para acallar alarmas de fallo.",
+            "CONTROLADORA": "Caterpillar GCCP 1.2 (Base DSE 4520 MKII)",
+            "OPERACION_CONTROLADORA": "• Modo AUTO: Supervisión automática de red e integración con conmutación.\n• Modo MANUAL (Mano) + ARRANQUE (Verde / I): Prueba manual de taller a pie de máquina.\n• Modo STOP / RESET (Rojo / O): Detención del motor y rearme/borrado de códigos de alarma.\n• Navegación (Flechas): Desplazamiento por pantalla LCD para presión de aceite, temp. agua, voltaje y horómetro.",
+            "MANUAL_URL": "https://drive.google.com"
+        },
+        # G-006
+        {
+            "ID_GRUPO": "G-006",
+            "CLIENTE": "LIDL",
+            "UBICACIÓN": "LIDL Ingenio Carrizal (Gran Canaria)",
+            "NOMBRE_GRUPO": "G-006 | LIDL Ingenio Carrizal (PRAMAC 141 kVA)",
+            "MARCA": "PRAMAC",
+            "MODELO_GRUPO": "GSW145 (SC131TDAV0C)",
+            "SERIE_GRUPO": "PEE2455203 (Año 2009)",
+            "MARCA_MOTOR": "DEUTZ",
+            "MODELO_MOTOR": "BF 6M 1013 E (128 kW / 172 HP)",
+            "SERIE_MOTOR": "10793881",
+            "ALTERNADOR": "STAMFORD UCI 274E",
+            "SERIE_ALTERNADOR": "X08B080125",
+            "POTENCIA_PRIME": "134.88 kVA / 107.9 kW",
+            "TENSIÓN_INTENSIDAD": "400 V / 204.61 A (50 Hz)",
+            "CAPACIDAD_ACEITE": "20 Litros (15W-40 Deutz DQC II/III)",
+            "CAPACIDAD_REFRIGERANTE": "27 Litros (Anticongelante Orgánico 50%)",
+            "CONTROLADORA": "PRAMAC GC M02-C",
+            "OPERACION_CONTROLADORA": "• Selector Rotativo 'A': Funcionamiento Automático por fallo de red.\n• Selector Rotativo 'Candado': Cuadro Desconectado / OFF.\n• Selector Rotativo 'Mano': Arranque manual usando el botón verde START.\n• Botón SILENT RESET (Azul): Reconoce pitido y rearma fallos en el display LCD.",
             "MANUAL_URL": "https://drive.google.com"
         }
     ])
@@ -148,10 +170,16 @@ def load_data():
         {"ID_GRUPO": "G-004", "TIPO": "Filtro Aire Principal (x2 V12)", "OEM / ORIGINAL": "CAT 6I-2505", "MANN-FILTER": "C 33 920/3", "FLEETGUARD": "AF25138", "DONALDSON": "P532505", "FG WILSON": "996-454 / 901-056", "BALDWIN / OTRAS": "BALDWIN RS3704"},
         {"ID_GRUPO": "G-004", "TIPO": "Filtro Agua / Refrigerante", "OEM / ORIGINAL": "CAT 9N-3366", "MANN-FILTER": "WA 940/1", "FLEETGUARD": "WF2075", "DONALDSON": "P552075", "FG WILSON": "10000-00054 / 901-401", "BALDWIN / OTRAS": "BALDWIN BW5075"},
 
-        # G-005 CATERPILLAR DE220GC (C7.1) - LIDL TELDE ARNAO
+        # G-005 CATERPILLAR DE220GC (C7.1)
         {"ID_GRUPO": "G-005", "TIPO": "Filtro Gasoil / Decantador Duplex (x2)", "OEM / ORIGINAL": "CAT 478-1422 / Perkins 4461492", "MANN-FILTER": "WK 8156 / WK 9059 x", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
         {"ID_GRUPO": "G-005", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
-        {"ID_GRUPO": "G-005", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
+        {"ID_GRUPO": "G-005", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"},
+
+        # G-006 PRAMAC GSW145 (DEUTZ BF6M1013E)
+        {"ID_GRUPO": "G-006", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "Deutz 01182912", "MANN-FILTER": "W 11 102/16", "FLEETGUARD": "LF3997", "DONALDSON": "P553771", "FG WILSON": "10000-51229 / 901-102", "BALDWIN / OTRAS": "BALDWIN B7180"},
+        {"ID_GRUPO": "G-006", "TIPO": "Filtro Gasoil Principal", "OEM / ORIGINAL": "Deutz 01180597", "MANN-FILTER": "WK 940/20", "FLEETGUARD": "FF5485", "DONALDSON": "P553004", "FG WILSON": "10000-00339", "BALDWIN / OTRAS": "BALDWIN BF7632"},
+        {"ID_GRUPO": "G-006", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Deutz 04152512", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
+        {"ID_GRUPO": "G-006", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Deutz 01180872", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF25431", "DONALDSON": "P777868", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"}
     ])
 
     mantenimientos = pd.DataFrame([
@@ -179,11 +207,17 @@ def load_data():
         {"ID_GRUPO": "G-004", "INTERVALO": "Cada 500 Horas / 2 Años", "TAREA": "Sustituir los 2 filtros de aire principales CAT 6I-2505 y el cartucho de tratamiento de agua 9N-3366."},
         {"ID_GRUPO": "G-004", "INTERVALO": "Cada 1.500 Horas / 3 Años", "TAREA": "Sustituir 90L de líquido refrigerante CAT ELC (Extended Life Coolant) e inspección de turbocompresores gemelos."},
 
-        # G-005 CAT C7.1
+        # G-005
         {"ID_GRUPO": "G-005", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (27L) y purgar agua de los filtros FG Wilson 20000-12699."},
         {"ID_GRUPO": "G-005", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518 y los 2 filtros de gasoil decantadores FG Wilson 20000-12699."},
         {"ID_GRUPO": "G-005", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Inspeccionar tensión de correa de transmisión y soplado exterior del radiador."},
-        {"ID_GRUPO": "G-005", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante orgánico CAT ELC y comprobación de inyectores Common Rail."}
+        {"ID_GRUPO": "G-005", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante orgánico CAT ELC y comprobación de inyectores Common Rail."},
+
+        # G-006
+        {"ID_GRUPO": "G-006", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter Deutz 1013 (20L), vaso de expansión refrigerante (27L) y purgar agua de decantador."},
+        {"ID_GRUPO": "G-006", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 20L de aceite Deutz 15W-40. Cambiar filtro Donaldson P553771 y filtro principal de gasoil Deutz 01180597."},
+        {"ID_GRUPO": "G-006", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir cartucho de aire principal y revisar el estado visual de la correa de transmisión / bomba de agua."},
+        {"ID_GRUPO": "G-006", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante y revisión de presiones y reglaje en bombas de inyección unitarias."}
     ])
 
     averias = pd.DataFrame([
@@ -208,10 +242,15 @@ def load_data():
         {"ID_GRUPO": "G-004", "CODIGO_ERROR": "CAT Code 11 (High Coolant Temp)", "SINTOMA": "Disparo por alta temperatura en circuito V12 Biturbo", "SOLUCION": "Comprobar nivel de anticongelante CAT ELC (90L). Limpiar el radiador doble y sustituir el filtro de tratamiento de agua CAT 9N-3366."},
         {"ID_GRUPO": "G-004", "CODIGO_ERROR": "Fallo Arranque / Solenoide Combustible", "SINTOMA": "El motor gira fuerte pero no abre paso de gasoil", "SOLUCION": "Revisar fusible del solenoide de corte de combustible en el bloque 3412 y limpiar par de prefiltros CAT 1R-0770."},
 
-        # G-005 CAT C7.1
+        # G-005
         {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Warning / Shutdown Low Oil Pressure", "SINTOMA": "Disparo por baja presión de aceite en panel GCCP 1.2", "SOLUCION": "Comprobar nivel en cárter C7.1 (16.5L). Sustituir filtro CAT 458-7518 y comprobar sensor de presión en bloque de motor."},
         {"ID_GRUPO": "G-005", "CODIGO_ERROR": "High Coolant Temperature Alarm", "SINTOMA": "Temperatura de agua superior a 98°C bajo carga", "SOLUCION": "Comprobar nivel en vaso de expansión (27L CAT ELC), limpiar radiador exterior y verificar correa de ventilador."},
-        {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Fail to Start / Low Battery Voltage", "SINTOMA": "Intento de arranque fallido en cuadro GCCP 1.2", "SOLUCION": "Comprobar cargador de baterías de 24V del cuadro, bornes sulfatados o presencia de aire en el circuito de gasoil Common Rail."}
+        {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Fail to Start / Low Battery Voltage", "SINTOMA": "Intento de arranque fallido en cuadro GCCP 1.2", "SOLUCION": "Comprobar cargador de baterías de 24V del cuadro, bornes sulfatados o presencia de aire en el circuito de gasoil Common Rail."},
+
+        # G-006
+        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla nivel aceite. Reemplazar filtro Donaldson P553771 instalado e inspeccionar sensor analógico VDO."},
+        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Alarma Alta Temperatura Agua", "SINTOMA": "Aviso de advertencia y posterior parada (>100ºC)", "SOLUCION": "Comprobar correa de ventilador Poly-V. Limpiar celdas exteriores del radiador y verificar que el nivel en botella es correcto."},
+        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Motor gira pero no arranca", "SINTOMA": "Fallo al iniciar en modo Prueba (T) o Manual desde la GC M02-C", "SOLUCION": "Purgar circuito de combustible desde prefiltro, revisar fusible de alimentación del solenoide de pare en motor Deutz BF 6M 1013 E."}
     ])
     
     return grupos, repuestos, mantenimientos, averias
