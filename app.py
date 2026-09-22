@@ -254,5 +254,5 @@ with tab4:
 
 with tab5:
     st.markdown("### 📖 Manuales y Documentación Taller")
-    st.write("Acceso a la carpeta compartida en Google Drive:")
-    st.link_button(f"📂 Abrir Carpeta de Manuales en Google Drive ({selected_grupo['UBICACIÓN']})", selected_grupo["MANUAL_URL"])
+    st.write("Acceso a la carpeta compartida de Google Drive del cliente:")
+    st.link_button(f"📂 Abrir Carpeta de Manuales en Google Drive (Hoteles Dunas)", selected_grupo["MANUAL_URL"])
