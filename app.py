@@ -148,10 +148,11 @@ def load_data():
         {"ID_GRUPO": "G-004", "TIPO": "Filtro Aire Principal (x2 V12)", "OEM / ORIGINAL": "CAT 6I-2505", "MANN-FILTER": "C 33 920/3", "FLEETGUARD": "AF25138", "DONALDSON": "P532505", "FG WILSON": "996-454 / 901-056", "BALDWIN / OTRAS": "BALDWIN RS3704"},
         {"ID_GRUPO": "G-004", "TIPO": "Filtro Agua / Refrigerante", "OEM / ORIGINAL": "CAT 9N-3366", "MANN-FILTER": "WA 940/1", "FLEETGUARD": "WF2075", "DONALDSON": "P552075", "FG WILSON": "10000-00054 / 901-401", "BALDWIN / OTRAS": "BALDWIN BW5075"},
 
-      # G-005 CATERPILLAR DE220GC (C7.1) - LIDL TELDE ARNAO
+        # G-005 CATERPILLAR DE220GC (C7.1) - LIDL TELDE ARNAO
         {"ID_GRUPO": "G-005", "TIPO": "Filtro Gasoil / Decantador Duplex (x2)", "OEM / ORIGINAL": "CAT 478-1422 / Perkins 4461492", "MANN-FILTER": "WK 8156 / WK 9059 x", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
         {"ID_GRUPO": "G-005", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-005", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
+    ])
 
     mantenimientos = pd.DataFrame([
         # G-001
@@ -179,8 +180,8 @@ def load_data():
         {"ID_GRUPO": "G-004", "INTERVALO": "Cada 1.500 Horas / 3 Años", "TAREA": "Sustituir 90L de líquido refrigerante CAT ELC (Extended Life Coolant) e inspección de turbocompresores gemelos."},
 
         # G-005 CAT C7.1
-        {"ID_GRUPO": "G-005", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (27L) y purgar agua del prefiltro CAT 478-1422."},
-        {"ID_GRUPO": "G-005", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518, filtro de gasoil CAT 389-1085 y prefiltro CAT 478-1422."},
+        {"ID_GRUPO": "G-005", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (27L) y purgar agua de los filtros FG Wilson 20000-12699."},
+        {"ID_GRUPO": "G-005", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518 y los 2 filtros de gasoil decantadores FG Wilson 20000-12699."},
         {"ID_GRUPO": "G-005", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Inspeccionar tensión de correa de transmisión y soplado exterior del radiador."},
         {"ID_GRUPO": "G-005", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante orgánico CAT ELC y comprobación de inyectores Common Rail."}
     ])
