@@ -226,6 +226,28 @@ def load_data():
             "CONTROLADORA": "PRAMAC AC21-MP (Panel ACP Automático)",
             "OPERACION_CONTROLADORA": "• Modo Automático: Supervisión constante de red de la tienda.\n• Controles Manuales / Start / Stop en frontal del cuadro ACP.\n• Pulsador de Reset de Alarma: Rearme de fallos de presión o temperatura.",
             "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
+        },
+        # G-011
+        {
+            "ID_GRUPO": "G-011",
+            "CLIENTE": "LIDL",
+            "UBICACIÓN": "LIDL Maspalomas (Gran Canaria)",
+            "NOMBRE_GRUPO": "G-011 | LIDL Maspalomas (PRAMAC 291 kVA)",
+            "MARCA": "PRAMAC",
+            "MODELO_GRUPO": "GDW295B/FNE (BC261TFA007)",
+            "SERIE_GRUPO": "4925D001608",
+            "MARCA_MOTOR": "BAUDOUIN",
+            "MODELO_MOTOR": "6M16G6D0/S (9.72L - 6L Turbo)",
+            "SERIE_MOTOR": "4925D001608",
+            "ALTERNADOR": "MECC ALTE ECO 38 1L4C",
+            "SERIE_ALTERNADOR": "H116206",
+            "POTENCIA_PRIME": "265 kVA / 212 kW (291 kVA Standby)",
+            "TENSIÓN_INTENSIDAD": "400/230 V / 50 Hz (1500 RPM)",
+            "CAPACIDAD_ACEITE": "24 Litros (15W-40 API CF/E7 Baudouin)",
+            "CAPACIDAD_REFRIGERANTE": "35 Litros (Anticongelante Orgánico 50%)",
+            "CONTROLADORA": "Deep Sea Electronics DSE 7320 MKII",
+            "OPERACION_CONTROLADORA": "• Modo AUTO: Vigilancia de red y arranque automático ante fallo de suministro.\n• Modo MANUAL + START (Verde): Arranque directo de prueba desde el frontal.\n• STOP / RESET (Rojo): Detención del grupo y borrado de fallos de la centralita DSE.",
+            "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
         }
     ])
 
@@ -291,7 +313,13 @@ def load_data():
         {"ID_GRUPO": "G-010", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "Deutz 01182912", "MANN-FILTER": "W 11 102/16", "FLEETGUARD": "LF3997", "DONALDSON": "P553771", "FG WILSON": "10000-51229 / 901-102", "BALDWIN / OTRAS": "BALDWIN B7180"},
         {"ID_GRUPO": "G-010", "TIPO": "Filtro Gasoil Principal", "OEM / ORIGINAL": "Deutz 01180597", "MANN-FILTER": "WK 940/20", "FLEETGUARD": "FF5485", "DONALDSON": "P553004", "FG WILSON": "10000-00339", "BALDWIN / OTRAS": "BALDWIN BF7632"},
         {"ID_GRUPO": "G-010", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Deutz 04152512", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
-        {"ID_GRUPO": "G-010", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Deutz 01180872", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF25431", "DONALDSON": "P777868", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"}
+        {"ID_GRUPO": "G-010", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Deutz 01180872", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF25431", "DONALDSON": "P777868", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"},
+
+        # G-011 PRAMAC GDW295B (BAUDOUIN 6M16) - LIDL Maspalomas
+        {"ID_GRUPO": "G-011", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "Baudouin 16224830K", "MANN-FILTER": "W 11 102/16", "FLEETGUARD": "LF4054", "DONALDSON": "P553771", "FG WILSON": "10000-51229", "BALDWIN / OTRAS": "BALDWIN B7180"},
+        {"ID_GRUPO": "G-011", "TIPO": "Filtro Gasoil Principal", "OEM / ORIGINAL": "Baudouin 16232128S", "MANN-FILTER": "WK 940/20", "FLEETGUARD": "FF5485", "DONALDSON": "P553004", "FG WILSON": "10000-00339", "BALDWIN / OTRAS": "BALDWIN BF7632"},
+        {"ID_GRUPO": "G-011", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Baudouin 16232127R", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
+        {"ID_GRUPO": "G-011", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Baudouin 16232183C", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF26159", "DONALDSON": "P604273", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"}
     ])
 
     mantenimientos = pd.DataFrame([
@@ -353,7 +381,13 @@ def load_data():
         {"ID_GRUPO": "G-010", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter Deutz 1013 (20L), vaso de expansión refrigerante (27L) y purgar agua de decantador."},
         {"ID_GRUPO": "G-010", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 20L de aceite Deutz 15W-40. Cambiar filtro Donaldson P553771 y filtro principal de gasoil Deutz 01180597."},
         {"ID_GRUPO": "G-010", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir cartucho de aire principal y revisar el estado visual de la correa de transmisión / bomba de agua."},
-        {"ID_GRUPO": "G-010", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante y revisión de presiones en bombas de inyección unitarias."}
+        {"ID_GRUPO": "G-010", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante y revisión de presiones en bombas de inyección unitarias."},
+
+        # G-011
+        {"ID_GRUPO": "G-011", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite en cárter Baudouin 6M16 (24L), depósito de expansión (35L) y purgar agua del prefiltro."},
+        {"ID_GRUPO": "G-011", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 24L de aceite 15W-40 CF/E7. Cambiar filtro de aceite Baudouin 16224830K y filtros de gasoil (principal y prefiltro)."},
+        {"ID_GRUPO": "G-011", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire Baudouin 16232183C. Inspección de manguitos de intercooler y tensión de correas."},
+        {"ID_GRUPO": "G-011", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 35L de refrigerante orgánico y comprobación general de la instalación eléctrica y alterna Mecc Alte."}
     ])
 
     averias = pd.DataFrame([
@@ -406,7 +440,12 @@ def load_data():
         # G-010
         {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Disparo Presión Aceite (Panel AC21)", "SINTOMA": "Parada del generador por baja presión de aceite en motor Deutz", "SOLUCION": "Revisar varilla de nivel, sustituir filtro de aceite Deutz 01182912 y comprobar estado del presostato."},
         {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Alarma Alta Temperatura de Agua", "SINTOMA": "Sobrecalentamiento (>100°C) registrado en centralita Pramac", "SOLUCION": "Limpiar celdas del radiador, comprobar nivel de refrigerante y verificar tensión de la correa del ventilador."},
-        {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Fallo de Arranque / Solenoide", "SINTOMA": "El motor de arranque gira pero el grupo no enciende", "SOLUCION": "Purgar aire en el circuito de gasoil, revisar prefiltro decantador y comprobar fusible de alimentación de la bomba inyectora."}
+        {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Fallo de Arranque / Solenoide", "SINTOMA": "El motor de arranque gira pero el grupo no enciende", "SOLUCION": "Purgar aire en el circuito de gasoil, revisar prefiltro decantador y comprobar fusible de alimentación de la bomba inyectora."},
+
+        # G-011
+        {"ID_GRUPO": "G-011", "CODIGO_ERROR": "DSE Low Oil Pressure Warning / Shutdown", "SINTOMA": "Disparo en centralita DSE 7320 por baja presión de aceite en motor Baudouin", "SOLUCION": "Comprobar nivel en cárter (24L). Sustituir filtro Baudouin 16224830K y revisar cableado del sensor de presión."},
+        {"ID_GRUPO": "G-011", "CODIGO_ERROR": "DSE High Coolant Temp Trip", "SINTOMA": "Parada por alta temperatura de refrigerante (>95°C) bajo carga en Maspalomas", "SOLUCION": "Verificar nivel en depósito de expansión (35L), limpiar panal exterior del radiador y comprobar estado del termostato."},
+        {"ID_GRUPO": "G-011", "CODIGO_ERROR": "DSE Fail to Start Alarm", "SINTOMA": "El motor gira en el intento de arranque pero no llega combustible", "SOLUCION": "Purgar el circuito de gasoil desde el prefiltro separador de agua y comprobar el estado de los filtros Baudouin."}
     ])
     
     return grupos, repuestos, mantenimientos, averias
