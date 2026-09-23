@@ -204,6 +204,28 @@ def load_data():
             "CONTROLADORA": "Caterpillar GCCP / EMCP",
             "OPERACION_CONTROLADORA": "• Modo Automático: Supervisión de red de tienda.\n• Modo Manual / Run: Arranque directo de prueba.\n• Botón Stop / Reset: Rearme y borrado de alarmas.",
             "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
+        },
+        # G-010
+        {
+            "ID_GRUPO": "G-010",
+            "CLIENTE": "LIDL",
+            "UBICACIÓN": "LIDL Jinámar (Gran Canaria)",
+            "NOMBRE_GRUPO": "G-010 | LIDL Jinámar (PRAMAC 141 kVA)",
+            "MARCA": "PRAMAC",
+            "MODELO_GRUPO": "GEW145 / GSW145",
+            "SERIE_GRUPO": "PEE24405D4",
+            "MARCA_MOTOR": "DEUTZ",
+            "MODELO_MOTOR": "BF 6M 1013 E (128 kW / 172 HP)",
+            "SERIE_MOTOR": "S/N Deutz 1013",
+            "ALTERNADOR": "STAMFORD UCI 274 E1",
+            "SERIE_ALTERNADOR": "S/N Stamford",
+            "POTENCIA_PRIME": "134.88 kVA / 107.9 kW",
+            "TENSIÓN_INTENSIDAD": "400 V / 204.61 A (50 Hz)",
+            "CAPACIDAD_ACEITE": "20 Litros (15W-40 Deutz DQC II/III)",
+            "CAPACIDAD_REFRIGERANTE": "27 Litros (Anticongelante Orgánico 50%)",
+            "CONTROLADORA": "PRAMAC AC21-MP (Panel ACP Automático)",
+            "OPERACION_CONTROLADORA": "• Modo Automático: Supervisión constante de red de la tienda.\n• Controles Manuales / Start / Stop en frontal del cuadro ACP.\n• Pulsador de Reset de Alarma: Rearme de fallos de presión o temperatura.",
+            "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
         }
     ])
 
@@ -263,7 +285,13 @@ def load_data():
         {"ID_GRUPO": "G-009", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-009", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
         {"ID_GRUPO": "G-009", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
-        {"ID_GRUPO": "G-009", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
+        {"ID_GRUPO": "G-009", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"},
+
+        # G-010 PRAMAC GEW145 (DEUTZ BF6M1013E) - LIDL Jinámar
+        {"ID_GRUPO": "G-010", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "Deutz 01182912", "MANN-FILTER": "W 11 102/16", "FLEETGUARD": "LF3997", "DONALDSON": "P553771", "FG WILSON": "10000-51229 / 901-102", "BALDWIN / OTRAS": "BALDWIN B7180"},
+        {"ID_GRUPO": "G-010", "TIPO": "Filtro Gasoil Principal", "OEM / ORIGINAL": "Deutz 01180597", "MANN-FILTER": "WK 940/20", "FLEETGUARD": "FF5485", "DONALDSON": "P553004", "FG WILSON": "10000-00339", "BALDWIN / OTRAS": "BALDWIN BF7632"},
+        {"ID_GRUPO": "G-010", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Deutz 04152512", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
+        {"ID_GRUPO": "G-010", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Deutz 01180872", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF25431", "DONALDSON": "P777868", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"}
     ])
 
     mantenimientos = pd.DataFrame([
@@ -319,7 +347,13 @@ def load_data():
         {"ID_GRUPO": "G-009", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (21L) y purgar condensados de cazoleta."},
         {"ID_GRUPO": "G-009", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518, filtro secundario CAT 389-1085 y prefiltro CAT 478-1422."},
         {"ID_GRUPO": "G-009", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Soplar radiador y revisar estado visual de la correa de accesorios."},
-        {"ID_GRUPO": "G-009", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."}
+        {"ID_GRUPO": "G-009", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."},
+
+        # G-010
+        {"ID_GRUPO": "G-010", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter Deutz 1013 (20L), vaso de expansión refrigerante (27L) y purgar agua de decantador."},
+        {"ID_GRUPO": "G-010", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 20L de aceite Deutz 15W-40. Cambiar filtro Donaldson P553771 y filtro principal de gasoil Deutz 01180597."},
+        {"ID_GRUPO": "G-010", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir cartucho de aire principal y revisar el estado visual de la correa de transmisión / bomba de agua."},
+        {"ID_GRUPO": "G-010", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante y revisión de presiones en bombas de inyección unitarias."}
     ])
 
     averias = pd.DataFrame([
@@ -350,7 +384,7 @@ def load_data():
         {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Fail to Start / Low Battery Voltage", "SINTOMA": "Intento de arranque fallido en cuadro GCCP 1.2", "SOLUCION": "Comprobar cargador de baterías de 24V del cuadro, bornes sulfatados o presencia de aire en el circuito de gasoil Common Rail."},
 
         # G-006
-        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla nivel aceite. Reemplazar filtro Donaldson P553771 installed e inspeccionar sensor analógico VDO."},
+        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla nivel aceite. Reemplazar filtro Donaldson P553771 instalado e inspeccionar sensor analógico VDO."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Alarma Alta Temperatura Agua", "SINTOMA": "Aviso de advertencia y posterior parada (>100ºC)", "SOLUCION": "Comprobar correa de ventilador Poly-V. Limpiar celdas exteriores del radiador y verificar que el nivel en botella es correcto."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Motor gira pero no arranca", "SINTOMA": "Fallo al iniciar en modo Prueba (T) o Manual desde la GC M02-C", "SOLUCION": "Purgar circuito de combustible desde prefiltro, revisar fusible de alimentación del solenoide de pare en motor Deutz BF 6M 1013 E."},
 
@@ -367,7 +401,12 @@ def load_data():
         # G-009
         {"ID_GRUPO": "G-009", "CODIGO_ERROR": "CAT Low Oil Pressure Warning", "SINTOMA": "Aviso o parada por baja presión de aceite en bloque C7.1", "SOLUCION": "Comprobar nivel en cárter (16.5L). Sustituir filtro CAT 458-7518 y verificar estado del sensor analógico."},
         {"ID_GRUPO": "G-009", "CODIGO_ERROR": "CAT High Coolant Temp", "SINTOMA": "Temperatura del refrigerante por encima de 98°C", "SOLUCION": "Comprobar nivel en depósito (21L CAT ELC), limpiar celdas del radiador y verificar tensión de la correa de la bomba."},
-        {"ID_GRUPO": "G-009", "CODIGO_ERROR": "Fuel Rail Pressure Low", "SINTOMA": "Fallo de arranque o tirones al asumir carga en grupo DE165E0", "SOLUCION": "Sustituir prefiltro separador CAT 478-1422 y filtro secundario CAT 389-1085 para purgar impurezas en Common Rail."}
+        {"ID_GRUPO": "G-009", "CODIGO_ERROR": "Fuel Rail Pressure Low", "SINTOMA": "Fallo de arranque o tirones al asumir carga en grupo DE165E0", "SOLUCION": "Sustituir prefiltro separador CAT 478-1422 y filtro secundario CAT 389-1085 para purgar impurezas en Common Rail."},
+
+        # G-010
+        {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Disparo Presión Aceite (Panel AC21)", "SINTOMA": "Parada del generador por baja presión de aceite en motor Deutz", "SOLUCION": "Revisar varilla de nivel, sustituir filtro de aceite Deutz 01182912 y comprobar estado del presostato."},
+        {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Alarma Alta Temperatura de Agua", "SINTOMA": "Sobrecalentamiento (>100°C) registrado en centralita Pramac", "SOLUCION": "Limpiar celdas del radiador, comprobar nivel de refrigerante y verificar tensión de la correa del ventilador."},
+        {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Fallo de Arranque / Solenoide", "SINTOMA": "El motor de arranque gira pero el grupo no enciende", "SOLUCION": "Purgar aire en el circuito de gasoil, revisar prefiltro decantador y comprobar fusible de alimentación de la bomba inyectora."}
     ])
     
     return grupos, repuestos, mantenimientos, averias
