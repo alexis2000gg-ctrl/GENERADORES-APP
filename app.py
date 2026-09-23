@@ -267,8 +267,8 @@ def load_data():
             "TENSIÓN_INTENSIDAD": "400/230 V / 50 Hz (1500 RPM)",
             "CAPACIDAD_ACEITE": "16.5 Litros (CAT DEO 15W-40)",
             "CAPACIDAD_REFRIGERANTE": "21 Litros (CAT ELC)",
-            "CONTROLADORA": "Caterpillar GCCP / EMCP",
-            "OPERACION_CONTROLADORA": "• Modo Automático: Supervisión de red de tienda.\n• Modo Manual / Run: Arranque directo de prueba.\n• Botón Stop / Reset: Rearme y borrado de alarmas.",
+            "CONTROLADORA": "Caterpillar EMCP 4.1",
+            "OPERACION_CONTROLADORA": "• AUTO: Vigilancia automática de red de tienda.\n• RUN: Arranque manual directo de prueba.\n• STOP: Detención del equipo.\n• ACK/RESET (Campana): Reconocimiento y rearme de fallos en pantalla LCD de la EMCP 4.1.",
             "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
         }
     ])
@@ -482,9 +482,9 @@ def load_data():
         {"ID_GRUPO": "G-011", "CODIGO_ERROR": "DSE Fail to Start Alarm", "SINTOMA": "El motor gira en el intento de arranque pero no llega combustible", "SOLUCION": "Purgar el circuito de gasoil desde el prefiltro separador de agua y comprobar el estado de los filtros Baudouin."},
 
         # G-012
-        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "CAT Low Oil Pressure Warning", "SINTOMA": "Aviso o parada por baja presión de aceite en bloque C7.1", "SOLUCION": "Comprobar nivel en cárter (16.5L). Sustituir filtro CAT 458-7518 y verificar estado del sensor analógico."},
-        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "CAT High Coolant Temp", "SINTOMA": "Temperatura del refrigerante por encima de 98°C", "SOLUCION": "Comprobar nivel en depósito (21L CAT ELC), limpiar celdas del radiador y verificar tensión de la correa de la bomba."},
-        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "Fuel Rail Pressure Low", "SINTOMA": "Fallo de arranque o tirones al asumir carga en grupo DE165E0", "SOLUCION": "Sustituir prefiltro separador CAT 478-1422 y filtro secundario CAT 389-1085 para purgar impurezas en Common Rail."}
+        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "EMCP 4.1 E360 (Low Oil Pressure)", "SINTOMA": "Parada de protección en cuadro EMCP 4.1 por baja presión en C7.1", "SOLUCION": "Verificar varilla de nivel (16.5L CAT DEO), cambiar filtro CAT 458-7518 y rearme con pulsador ACK."},
+        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "EMCP 4.1 E361 (High Coolant Temp)", "SINTOMA": "Temperatura del refrigerante excedida en la pantalla de la centralita", "SOLUCION": "Comprobar nivel en depósito (21L CAT ELC), limpiar celdas del radiador y revisar ventilación del shelter."},
+        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "EMCP 4.1 Fuel Rail Pressure", "SINTOMA": "Inestabilidad o fallo de arranque en Antigua El Castillo", "SOLUCION": "Sustituir prefiltro CAT 478-1422 y filtro secundario CAT 389-1085 para purgar el sistema Common Rail."}
     ])
     
     return grupos, repuestos, mantenimientos, averias
