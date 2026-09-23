@@ -314,6 +314,28 @@ def load_data():
             "CONTROLADORA": "Caterpillar EMCP 4.2",
             "OPERACION_CONTROLADORA": "• AUTO: Pulsador para dejar en vigilancia de red de la tienda.\n• RUN: Arranque manual directo.\n• STOP: Detención del equipo.\n• ACK/RESET (Campana amarilla): Silencia la sirena y rearma fallos mostrados en la pantalla antes de un nuevo intento.",
             "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
+        },
+        # G-015
+        {
+            "ID_GRUPO": "G-015",
+            "CLIENTE": "LIDL",
+            "UBICACIÓN": "LIDL Playa Blanca (Lanzarote)",
+            "NOMBRE_GRUPO": "G-015 | LIDL Playa Blanca (GENESAL 220 kVA)",
+            "MARCA": "GENESAL ENERGY",
+            "MODELO_GRUPO": "GEN220YI",
+            "SERIE_GRUPO": "S/N Genesal",
+            "MARCA_MOTOR": "BAUDOUIN",
+            "MODELO_MOTOR": "6M16G2D0/S (9.72L - 6L Turbo)",
+            "SERIE_MOTOR": "4924A000295",
+            "ALTERNADOR": "Stamford / Mecc Alte",
+            "SERIE_ALTERNADOR": "S/N Alternador",
+            "POTENCIA_PRIME": "200 kVA / 160 kW (220 kVA Standby)",
+            "TENSIÓN_INTENSIDAD": "400/230 V / 50 Hz (1500 RPM)",
+            "CAPACIDAD_ACEITE": "24 Litros (15W-40 API CF/E7 Baudouin)",
+            "CAPACIDAD_REFRIGERANTE": "35 Litros (Anticongelante Orgánico 50%)",
+            "CONTROLADORA": "Genesal GEINTEL 2",
+            "OPERACION_CONTROLADORA": "• Modo AUTO: Vigilancia constante de red y arranque automático por fallo de suministro.\n• Modo MAN: Arranque y parada manual desde el frontal del cuadro.\n• STOP / RESET: Detención del equipo y borrado/rearme de alarmas en la centralita GEINTEL 2.",
+            "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
         }
     ])
 
@@ -403,7 +425,13 @@ def load_data():
         {"ID_GRUPO": "G-014", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-014", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
         {"ID_GRUPO": "G-014", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
-        {"ID_GRUPO": "G-014", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
+        {"ID_GRUPO": "G-014", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"},
+
+        # G-015 GENESAL GEN220YI (BAUDOUIN 6M16G2D0/S) - LIDL Playa Blanca
+        {"ID_GRUPO": "G-015", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "Baudouin 16224830K", "MANN-FILTER": "W 11 102/16", "FLEETGUARD": "LF4054", "DONALDSON": "P553771", "FG WILSON": "10000-51229", "BALDWIN / OTRAS": "BALDWIN B7180"},
+        {"ID_GRUPO": "G-015", "TIPO": "Filtro Gasoil Principal", "OEM / ORIGINAL": "Baudouin 16232128S", "MANN-FILTER": "WK 940/20", "FLEETGUARD": "FF5485", "DONALDSON": "P553004", "FG WILSON": "10000-00339", "BALDWIN / OTRAS": "BALDWIN BF7632"},
+        {"ID_GRUPO": "G-015", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Baudouin 16232127R", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
+        {"ID_GRUPO": "G-015", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Baudouin 16232183C", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF26159", "DONALDSON": "P604273", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"}
     ])
 
     mantenimientos = pd.DataFrame([
@@ -489,7 +517,13 @@ def load_data():
         {"ID_GRUPO": "G-014", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (21L) y purgar condensados de cazoleta."},
         {"ID_GRUPO": "G-014", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518, filtro secundario CAT 389-1085 y prefiltro CAT 478-1422."},
         {"ID_GRUPO": "G-014", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Soplar radiador y revisar estado visual de la correa de accesorios."},
-        {"ID_GRUPO": "G-014", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."}
+        {"ID_GRUPO": "G-014", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."},
+
+        # G-015
+        {"ID_GRUPO": "G-015", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite en cárter Baudouin 6M16 (24L), depósito de expansión (35L) y purgar agua del prefiltro."},
+        {"ID_GRUPO": "G-015", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 24L de aceite 15W-40 CF/E7. Cambiar filtro de aceite Baudouin 16224830K y filtros de gasoil (principal y prefiltro)."},
+        {"ID_GRUPO": "G-015", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire Baudouin 16232183C. Inspección de manguitos de intercooler y tensión de correas."},
+        {"ID_GRUPO": "G-015", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 35L de refrigerante orgánico y comprobación general de la instalación eléctrica y alterna."}
     ])
 
     averias = pd.DataFrame([
@@ -520,7 +554,7 @@ def load_data():
         {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Fail to Start / Low Battery Voltage", "SINTOMA": "Intento de arranque fallido en cuadro GCCP 1.2", "SOLUCION": "Comprobar cargador de baterías de 24V del cuadro, bornes sulfatados o presencia de aire en el circuito de gasoil Common Rail."},
 
         # G-006
-        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla nivel aceite. Reemplazar filtro Donaldson P553771 instalado e inspeccionar sensor analógico VDO."},
+        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla nivel aceite. Reemplazar filtro Donaldson P553771 installed e inspeccionar sensor analógico VDO."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Alarma Alta Temperatura Agua", "SINTOMA": "Aviso de advertencia y posterior parada (>100ºC)", "SOLUCION": "Comprobar correa de ventilador Poly-V. Limpiar celdas exteriores del radiador y verificar que el nivel en botella es correcto."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Motor gira pero no arranca", "SINTOMA": "Fallo al iniciar en modo Prueba (T) o Manual desde la GC M02-C", "SOLUCION": "Purgar circuito de combustible desde prefiltro, revisar fusible de alimentación del solenoide de pare en motor Deutz BF 6M 1013 E."},
 
@@ -560,9 +594,14 @@ def load_data():
         {"ID_GRUPO": "G-013", "CODIGO_ERROR": "EMCP 4.2 Data Link / Fuel Rail Fault", "SINTOMA": "Alarma de comunicación con ECU o presión de rampa baja en Corralejo", "SOLUCION": "Revisar conectores J1939 y sustituir prefiltro CAT 478-1422 y filtro secundario CAT 389-1085."},
 
         # G-014
-        {"ID_GRUPO": "G-014", "CODIGO_ERROR": "EMCP 4.2 Evento E360 (Low Oil Pressure)", "SINTOMA": "Parada de protección en panel EMCP 4.2 por baja presión en C7.1", "SOLUCION": "Verificar nivel en cárter (16.5L CAT DEO), sustituir filtro CAT 458-7518 y borrar código de evento con botón ACK."},
+        {"ID_GRUPO": "G-014", "CODIGO_ERROR": "EMCP 4.2 Evento E360 (Low Oil Pressure)", "SINTOMA": "Parada de protección en panel EMCP 4.2 por baja presión de aceite en C7.1", "SOLUCION": "Verificar nivel en cárter (16.5L CAT DEO), sustituir filtro CAT 458-7518 y borrar código de evento con botón ACK."},
         {"ID_GRUPO": "G-014", "CODIGO_ERROR": "EMCP 4.2 Evento E361 (High Coolant Temp)", "SINTOMA": "Sobrecalentamiento del bloque C7.1 detectado por el sensor del termostato", "SOLUCION": "Comprobar nivel en depósito de expansión (21L CAT ELC), limpiar celdas del radiador y verificar flujo de aire en el shelter."},
-        {"ID_GRUPO": "G-014", "CODIGO_ERROR": "EMCP 4.2 Data Link / Fuel Rail Fault", "SINTOMA": "Alarma de comunicación con ECU o presión de rampa baja en Puerto del Rosario", "SOLUCION": "Revisar conectores J1939 y sustituir prefiltro CAT 478-1422 y filtro secundario CAT 389-1085."}
+        {"ID_GRUPO": "G-014", "CODIGO_ERROR": "EMCP 4.2 Data Link / Fuel Rail Fault", "SINTOMA": "Alarma de comunicación con ECU o presión de rampa baja en Puerto del Rosario", "SOLUCION": "Revisar conectores J1939 y sustituir prefiltro CAT 478-1422 y filtro secundario CAT 389-1085."},
+
+        # G-015
+        {"ID_GRUPO": "G-015", "CODIGO_ERROR": "GEINTEL 2 Baja Presión de Aceite", "SINTOMA": "Disparo en centralita GEINTEL 2 por baja presión en motor Baudouin", "SOLUCION": "Comprobar nivel en cárter (24L 15W-40), sustituir filtro Baudouin 16224830K y revisar presostato."},
+        {"ID_GRUPO": "G-015", "CODIGO_ERROR": "GEINTEL 2 Alta Temperatura Agua", "SINTOMA": "Parada por sobrecalentamiento en tienda de Playa Blanca", "SOLUCION": "Verificar nivel en depósito de expansión (35L), limpiar panal exterior del radiador y comprobar termostato."},
+        {"ID_GRUPO": "G-015", "CODIGO_ERROR": "GEINTEL 2 Fallo de Arranque (Fail to Start)", "SINTOMA": "El motor gira pero no se produce la puesta en marcha", "SOLUCION": "Purgar circuito de combustible, verificar estado de prefiltro decantador Baudouin y comprobar alimentación eléctrica del cuadro GEINTEL 2."}
     ])
     
     return grupos, repuestos, mantenimientos, averias
