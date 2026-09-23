@@ -248,6 +248,28 @@ def load_data():
             "CONTROLADORA": "Deep Sea Electronics DSE 7320 MKII",
             "OPERACION_CONTROLADORA": "• Modo AUTO: Vigilancia de red y arranque automático ante fallo de suministro.\n• Modo MANUAL + START (Verde): Arranque directo de prueba desde el frontal.\n• STOP / RESET (Rojo): Detención del grupo y borrado de fallos de la centralita DSE.",
             "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
+        },
+        # G-012
+        {
+            "ID_GRUPO": "G-012",
+            "CLIENTE": "LIDL",
+            "UBICACIÓN": "LIDL Antigua El Castillo (Fuerteventura)",
+            "NOMBRE_GRUPO": "G-012 | LIDL Antigua El Castillo (CAT 165 kVA)",
+            "MARCA": "CATERPILLAR",
+            "MODELO_GRUPO": "DE165E0",
+            "SERIE_GRUPO": "CAT00C71TGTPG1918",
+            "MARCA_MOTOR": "CATERPILLAR",
+            "MODELO_MOTOR": "C7.1 (7.01L - 6L Turbo Intercooler)",
+            "SERIE_MOTOR": "KRG06839",
+            "ALTERNADOR": "CAT Series (LWK)",
+            "SERIE_ALTERNADOR": "LWK03150",
+            "POTENCIA_PRIME": "150 kVA / 120 kW (165 kVA Standby)",
+            "TENSIÓN_INTENSIDAD": "400/230 V / 50 Hz (1500 RPM)",
+            "CAPACIDAD_ACEITE": "16.5 Litros (CAT DEO 15W-40)",
+            "CAPACIDAD_REFRIGERANTE": "21 Litros (CAT ELC)",
+            "CONTROLADORA": "Caterpillar GCCP / EMCP",
+            "OPERACION_CONTROLADORA": "• Modo Automático: Supervisión de red de tienda.\n• Modo Manual / Run: Arranque directo de prueba.\n• Botón Stop / Reset: Rearme y borrado de alarmas.",
+            "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
         }
     ])
 
@@ -319,7 +341,13 @@ def load_data():
         {"ID_GRUPO": "G-011", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "Baudouin 16224830K", "MANN-FILTER": "W 11 102/16", "FLEETGUARD": "LF4054", "DONALDSON": "P553771", "FG WILSON": "10000-51229", "BALDWIN / OTRAS": "BALDWIN B7180"},
         {"ID_GRUPO": "G-011", "TIPO": "Filtro Gasoil Principal", "OEM / ORIGINAL": "Baudouin 16232128S", "MANN-FILTER": "WK 940/20", "FLEETGUARD": "FF5485", "DONALDSON": "P553004", "FG WILSON": "10000-00339", "BALDWIN / OTRAS": "BALDWIN BF7632"},
         {"ID_GRUPO": "G-011", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Baudouin 16232127R", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
-        {"ID_GRUPO": "G-011", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Baudouin 16232183C", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF26159", "DONALDSON": "P604273", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"}
+        {"ID_GRUPO": "G-011", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Baudouin 16232183C", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF26159", "DONALDSON": "P604273", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"},
+
+        # G-012 CATERPILLAR DE165E0 (C7.1) - LIDL Antigua El Castillo
+        {"ID_GRUPO": "G-012", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
+        {"ID_GRUPO": "G-012", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
+        {"ID_GRUPO": "G-012", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
+        {"ID_GRUPO": "G-012", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
     ])
 
     mantenimientos = pd.DataFrame([
@@ -387,7 +415,13 @@ def load_data():
         {"ID_GRUPO": "G-011", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite en cárter Baudouin 6M16 (24L), depósito de expansión (35L) y purgar agua del prefiltro."},
         {"ID_GRUPO": "G-011", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 24L de aceite 15W-40 CF/E7. Cambiar filtro de aceite Baudouin 16224830K y filtros de gasoil (principal y prefiltro)."},
         {"ID_GRUPO": "G-011", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire Baudouin 16232183C. Inspección de manguitos de intercooler y tensión de correas."},
-        {"ID_GRUPO": "G-011", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 35L de refrigerante orgánico y comprobación general de la instalación eléctrica y alterna Mecc Alte."}
+        {"ID_GRUPO": "G-011", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 35L de refrigerante orgánico y comprobación general de la instalación eléctrica y alterna Mecc Alte."},
+
+        # G-012
+        {"ID_GRUPO": "G-012", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (21L) y purgar condensados de cazoleta."},
+        {"ID_GRUPO": "G-012", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518, filtro secundario CAT 389-1085 y prefiltro CAT 478-1422."},
+        {"ID_GRUPO": "G-012", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Soplar radiador y revisar estado visual de la correa de accesorios."},
+        {"ID_GRUPO": "G-012", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."}
     ])
 
     averias = pd.DataFrame([
@@ -445,7 +479,12 @@ def load_data():
         # G-011
         {"ID_GRUPO": "G-011", "CODIGO_ERROR": "DSE Low Oil Pressure Warning / Shutdown", "SINTOMA": "Disparo en centralita DSE 7320 por baja presión de aceite en motor Baudouin", "SOLUCION": "Comprobar nivel en cárter (24L). Sustituir filtro Baudouin 16224830K y revisar cableado del sensor de presión."},
         {"ID_GRUPO": "G-011", "CODIGO_ERROR": "DSE High Coolant Temp Trip", "SINTOMA": "Parada por alta temperatura de refrigerante (>95°C) bajo carga en Maspalomas", "SOLUCION": "Verificar nivel en depósito de expansión (35L), limpiar panal exterior del radiador y comprobar estado del termostato."},
-        {"ID_GRUPO": "G-011", "CODIGO_ERROR": "DSE Fail to Start Alarm", "SINTOMA": "El motor gira en el intento de arranque pero no llega combustible", "SOLUCION": "Purgar el circuito de gasoil desde el prefiltro separador de agua y comprobar el estado de los filtros Baudouin."}
+        {"ID_GRUPO": "G-011", "CODIGO_ERROR": "DSE Fail to Start Alarm", "SINTOMA": "El motor gira en el intento de arranque pero no llega combustible", "SOLUCION": "Purgar el circuito de gasoil desde el prefiltro separador de agua y comprobar el estado de los filtros Baudouin."},
+
+        # G-012
+        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "CAT Low Oil Pressure Warning", "SINTOMA": "Aviso o parada por baja presión de aceite en bloque C7.1", "SOLUCION": "Comprobar nivel en cárter (16.5L). Sustituir filtro CAT 458-7518 y verificar estado del sensor analógico."},
+        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "CAT High Coolant Temp", "SINTOMA": "Temperatura del refrigerante por encima de 98°C", "SOLUCION": "Comprobar nivel en depósito (21L CAT ELC), limpiar celdas del radiador y verificar tensión de la correa de la bomba."},
+        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "Fuel Rail Pressure Low", "SINTOMA": "Fallo de arranque o tirones al asumir carga en grupo DE165E0", "SOLUCION": "Sustituir prefiltro separador CAT 478-1422 y filtro secundario CAT 389-1085 para purgar impurezas en Common Rail."}
     ])
     
     return grupos, repuestos, mantenimientos, averias
