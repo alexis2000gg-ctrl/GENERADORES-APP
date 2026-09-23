@@ -182,6 +182,28 @@ def load_data():
             "CONTROLADORA": "Caterpillar EMCP 4.2",
             "OPERACION_CONTROLADORA": "• AUTO: Pulsador para dejar en vigilancia de red de la tienda.\n• RUN: Arranque manual directo.\n• STOP: Detención del equipo.\n• ACK/RESET (Campana amarilla): Silencia la sirena y rearma fallos mostrados en la pantalla antes de un nuevo intento.",
             "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
+        },
+        # G-009
+        {
+            "ID_GRUPO": "G-009",
+            "CLIENTE": "LIDL",
+            "UBICACIÓN": "LIDL Miller Bajo (Gran Canaria)",
+            "NOMBRE_GRUPO": "G-009 | LIDL Miller Bajo (CAT 165 kVA)",
+            "MARCA": "CATERPILLAR",
+            "MODELO_GRUPO": "DE165E0",
+            "SERIE_GRUPO": "CAT00C71GTP01451",
+            "MARCA_MOTOR": "CATERPILLAR",
+            "MODELO_MOTOR": "C7.1 (7.01L - 6L Turbo Intercooler)",
+            "SERIE_MOTOR": "KRG05294",
+            "ALTERNADOR": "CAT Series (LWK)",
+            "SERIE_ALTERNADOR": "S/N LWK",
+            "POTENCIA_PRIME": "150 kVA / 120 kW (165 kVA Standby)",
+            "TENSIÓN_INTENSIDAD": "400/230 V / 50 Hz (1500 RPM)",
+            "CAPACIDAD_ACEITE": "16.5 Litros (CAT DEO 15W-40)",
+            "CAPACIDAD_REFRIGERANTE": "21 Litros (CAT ELC)",
+            "CONTROLADORA": "Caterpillar GCCP / EMCP",
+            "OPERACION_CONTROLADORA": "• Modo Automático: Supervisión de red de tienda.\n• Modo Manual / Run: Arranque directo de prueba.\n• Botón Stop / Reset: Rearme y borrado de alarmas.",
+            "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
         }
     ])
 
@@ -235,7 +257,13 @@ def load_data():
         {"ID_GRUPO": "G-008", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-008", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
         {"ID_GRUPO": "G-008", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
-        {"ID_GRUPO": "G-008", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
+        {"ID_GRUPO": "G-008", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"},
+
+        # G-009 CATERPILLAR DE165E0 (C7.1) - LIDL Miller Bajo
+        {"ID_GRUPO": "G-009", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
+        {"ID_GRUPO": "G-009", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
+        {"ID_GRUPO": "G-009", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
+        {"ID_GRUPO": "G-009", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
     ])
 
     mantenimientos = pd.DataFrame([
@@ -285,7 +313,13 @@ def load_data():
         {"ID_GRUPO": "G-008", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (21L) y purgar condensados del prefiltro."},
         {"ID_GRUPO": "G-008", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518, filtro secundario CAT 389-1085 y prefiltro CAT 478-1422."},
         {"ID_GRUPO": "G-008", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Inspeccionar estado de correas y revisar conexiones del módulo de inyección electrónica."},
-        {"ID_GRUPO": "G-008", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución de anticongelante ELC y revisión integral mediante software Caterpillar Electronic Technician (CAT ET)."}
+        {"ID_GRUPO": "G-008", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución de anticongelante ELC y revisión integral mediante software Caterpillar Electronic Technician (CAT ET)."},
+
+        # G-009
+        {"ID_GRUPO": "G-009", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (21L) y purgar condensados de cazoleta."},
+        {"ID_GRUPO": "G-009", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518, filtro secundario CAT 389-1085 y prefiltro CAT 478-1422."},
+        {"ID_GRUPO": "G-009", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Soplar radiador y revisar estado visual de la correa de accesorios."},
+        {"ID_GRUPO": "G-009", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."}
     ])
 
     averias = pd.DataFrame([
@@ -316,7 +350,7 @@ def load_data():
         {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Fail to Start / Low Battery Voltage", "SINTOMA": "Intento de arranque fallido en cuadro GCCP 1.2", "SOLUCION": "Comprobar cargador de baterías de 24V del cuadro, bornes sulfatados o presencia de aire en el circuito de gasoil Common Rail."},
 
         # G-006
-        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla nivel aceite. Reemplazar filtro Donaldson P553771 instalado e inspeccionar sensor analógico VDO."},
+        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla nivel aceite. Reemplazar filtro Donaldson P553771 installed e inspeccionar sensor analógico VDO."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Alarma Alta Temperatura Agua", "SINTOMA": "Aviso de advertencia y posterior parada (>100ºC)", "SOLUCION": "Comprobar correa de ventilador Poly-V. Limpiar celdas exteriores del radiador y verificar que el nivel en botella es correcto."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Motor gira pero no arranca", "SINTOMA": "Fallo al iniciar en modo Prueba (T) o Manual desde la GC M02-C", "SOLUCION": "Purgar circuito de combustible desde prefiltro, revisar fusible de alimentación del solenoide de pare en motor Deutz BF 6M 1013 E."},
 
@@ -328,7 +362,12 @@ def load_data():
         # G-008
         {"ID_GRUPO": "G-008", "CODIGO_ERROR": "EMCP Evento E360 (Low Oil Pressure)", "SINTOMA": "Apagado por protección en EMCP 4.2 debido a baja presión", "SOLUCION": "Verificar nivel de aceite del C7.1. Comprobar que no hay dilución por gasoil, sustituir filtro 458-7518 y resetear fallo con botón amarillo ACK."},
         {"ID_GRUPO": "G-008", "CODIGO_ERROR": "EMCP Evento E361 (High Coolant Temp)", "SINTOMA": "Alta temperatura de refrigerante detectada por el sensor del bloque", "SOLUCION": "Verificar nivel de refrigerante CAT ELC. Limpiar radiador exterior y purgar aire del circuito de refrigeración."},
-        {"ID_GRUPO": "G-008", "CODIGO_ERROR": "Data Link Fault / FMI 9", "SINTOMA": "Pérdida de comunicación entre la EMCP 4.2 y la ECU del motor C7.1", "SOLUCION": "Revisar los conectores J1939 (Data Link) en el cableado trasero del panel y en el módulo electrónico del motor para detectar falsos contactos."}
+        {"ID_GRUPO": "G-008", "CODIGO_ERROR": "Data Link Fault / FMI 9", "SINTOMA": "Pérdida de comunicación entre la EMCP 4.2 y la ECU del motor C7.1", "SOLUCION": "Revisar los conectores J1939 (Data Link) en el cableado trasero del panel y en el módulo electrónico del motor para detectar falsos contactos."},
+
+        # G-009
+        {"ID_GRUPO": "G-009", "CODIGO_ERROR": "CAT Low Oil Pressure Warning", "SINTOMA": "Aviso o parada por baja presión de aceite en bloque C7.1", "SOLUCION": "Comprobar nivel en cárter (16.5L). Sustituir filtro CAT 458-7518 y verificar estado del sensor analógico."},
+        {"ID_GRUPO": "G-009", "CODIGO_ERROR": "CAT High Coolant Temp", "SINTOMA": "Temperatura del refrigerante por encima de 98°C", "SOLUCION": "Comprobar nivel en depósito (21L CAT ELC), limpiar celdas del radiador y verificar tensión de la correa de la bomba."},
+        {"ID_GRUPO": "G-009", "CODIGO_ERROR": "Fuel Rail Pressure Low", "SINTOMA": "Fallo de arranque o tirones al asumir carga en grupo DE165E0", "SOLUCION": "Sustituir prefiltro separador CAT 478-1422 y filtro secundario CAT 389-1085 para purgar impurezas en Common Rail."}
     ])
     
     return grupos, repuestos, mantenimientos, averias
