@@ -270,6 +270,28 @@ def load_data():
             "CONTROLADORA": "Caterpillar EMCP 4.1",
             "OPERACION_CONTROLADORA": "• AUTO: Vigilancia automática de red de tienda.\n• RUN: Arranque manual directo de prueba.\n• STOP: Detención del equipo.\n• ACK/RESET (Campana): Reconocimiento y rearme de fallos en pantalla LCD de la EMCP 4.1.",
             "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
+        },
+        # G-013
+        {
+            "ID_GRUPO": "G-013",
+            "CLIENTE": "LIDL",
+            "UBICACIÓN": "LIDL Corralejo El Guirre (Fuerteventura)",
+            "NOMBRE_GRUPO": "G-013 | LIDL Corralejo El Guirre (CAT 200 kVA)",
+            "MARCA": "CATERPILLAR",
+            "MODELO_GRUPO": "DE200E0",
+            "SERIE_GRUPO": "CAT00C71PECW04376",
+            "MARCA_MOTOR": "CATERPILLAR",
+            "MODELO_MOTOR": "C7.1 (7.01L - 6L Turbo Intercooler)",
+            "SERIE_MOTOR": "KRG08445",
+            "ALTERNADOR": "CAT Series (LWK)",
+            "SERIE_ALTERNADOR": "LWK04671",
+            "POTENCIA_PRIME": "180 kVA / 144 kW (200 kVA Standby)",
+            "TENSIÓN_INTENSIDAD": "400/230 V / 288 A (50 Hz)",
+            "CAPACIDAD_ACEITE": "16.5 Litros (CAT DEO 15W-40)",
+            "CAPACIDAD_REFRIGERANTE": "21 Litros (CAT ELC)",
+            "CONTROLADORA": "Caterpillar EMCP 4.2",
+            "OPERACION_CONTROLADORA": "• AUTO: Pulsador para dejar en vigilancia de red de la tienda.\n• RUN: Arranque manual directo.\n• STOP: Detención del equipo.\n• ACK/RESET (Campana amarilla): Silencia la sirena y rearma fallos mostrados en la pantalla antes de un nuevo intento.",
+            "MANUAL_URL": "https://drive.google.com/drive/folders/1DVh1bQ7P-NyBA3c6FKZcKC-SMR_JvQJf?usp=sharing"
         }
     ])
 
@@ -347,7 +369,13 @@ def load_data():
         {"ID_GRUPO": "G-012", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-012", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
         {"ID_GRUPO": "G-012", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
-        {"ID_GRUPO": "G-012", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
+        {"ID_GRUPO": "G-012", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"},
+
+        # G-013 CATERPILLAR DE200E0 (C7.1) - LIDL Corralejo El Guirre
+        {"ID_GRUPO": "G-013", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
+        {"ID_GRUPO": "G-013", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
+        {"ID_GRUPO": "G-013", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
+        {"ID_GRUPO": "G-013", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"}
     ])
 
     mantenimientos = pd.DataFrame([
@@ -421,7 +449,13 @@ def load_data():
         {"ID_GRUPO": "G-012", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (21L) y purgar condensados de cazoleta."},
         {"ID_GRUPO": "G-012", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518, filtro secundario CAT 389-1085 y prefiltro CAT 478-1422."},
         {"ID_GRUPO": "G-012", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Soplar radiador y revisar estado visual de la correa de accesorios."},
-        {"ID_GRUPO": "G-012", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."}
+        {"ID_GRUPO": "G-012", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."},
+
+        # G-013
+        {"ID_GRUPO": "G-013", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter C7.1 (16.5L CAT DEO 15W-40), vaso de expansión (21L) y purgar condensados de cazoleta."},
+        {"ID_GRUPO": "G-013", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 16.5L de aceite 15W-40. Cambiar filtro de aceite CAT 458-7518, filtro secundario CAT 389-1085 y prefiltro CAT 478-1422."},
+        {"ID_GRUPO": "G-013", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Soplar radiador y revisar estado visual de la correa de accesorios."},
+        {"ID_GRUPO": "G-013", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."}
     ])
 
     averias = pd.DataFrame([
@@ -484,7 +518,12 @@ def load_data():
         # G-012
         {"ID_GRUPO": "G-012", "CODIGO_ERROR": "EMCP 4.1 E360 (Low Oil Pressure)", "SINTOMA": "Parada de protección en cuadro EMCP 4.1 por baja presión en C7.1", "SOLUCION": "Verificar varilla de nivel (16.5L CAT DEO), cambiar filtro CAT 458-7518 y rearme con pulsador ACK."},
         {"ID_GRUPO": "G-012", "CODIGO_ERROR": "EMCP 4.1 E361 (High Coolant Temp)", "SINTOMA": "Temperatura del refrigerante excedida en la pantalla de la centralita", "SOLUCION": "Comprobar nivel en depósito (21L CAT ELC), limpiar celdas del radiador y revisar ventilación del shelter."},
-        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "EMCP 4.1 Fuel Rail Pressure", "SINTOMA": "Inestabilidad o fallo de arranque en Antigua El Castillo", "SOLUCION": "Sustituir prefiltro CAT 478-1422 y filtro secundario CAT 389-1085 para purgar el sistema Common Rail."}
+        {"ID_GRUPO": "G-012", "CODIGO_ERROR": "EMCP 4.1 Fuel Rail Pressure", "SINTOMA": "Inestabilidad o fallo de arranque en Antigua El Castillo", "SOLUCION": "Sustituir prefiltro CAT 478-1422 y filtro secundario CAT 389-1085 para purgar el sistema Common Rail."},
+
+        # G-013
+        {"ID_GRUPO": "G-013", "CODIGO_ERROR": "EMCP 4.2 Evento E360 (Low Oil Pressure)", "SINTOMA": "Parada de protección en panel EMCP 4.2 por baja presión de aceite en C7.1", "SOLUCION": "Verificar nivel en cárter (16.5L CAT DEO), sustituir filtro CAT 458-7518 y borrar código de evento con botón ACK."},
+        {"ID_GRUPO": "G-013", "CODIGO_ERROR": "EMCP 4.2 Evento E361 (High Coolant Temp)", "SINTOMA": "Sobrecalentamiento del bloque C7.1 detectado por el sensor del termostato", "SOLUCION": "Comprobar nivel en depósito de expansión (21L CAT ELC), limpiar celdas del radiador y verificar flujo de aire en el shelter."},
+        {"ID_GRUPO": "G-013", "CODIGO_ERROR": "EMCP 4.2 Data Link / Fuel Rail Fault", "SINTOMA": "Alarma de comunicación con ECU o presión de rampa baja en Corralejo", "SOLUCION": "Revisar conectores J1939 y sustituir prefiltro CAT 478-1422 y filtro secundario CAT 389-1085."}
     ])
     
     return grupos, repuestos, mantenimientos, averias
