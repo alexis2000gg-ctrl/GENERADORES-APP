@@ -554,7 +554,7 @@ def load_data():
         {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Fail to Start / Low Battery Voltage", "SINTOMA": "Intento de arranque fallido en cuadro GCCP 1.2", "SOLUCION": "Comprobar cargador de baterías de 24V del cuadro, bornes sulfatados o presencia de aire en el circuito de gasoil Common Rail."},
 
         # G-006
-        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla nivel aceite. Reemplazar filtro Donaldson P553771 installed e inspeccionar sensor analógico VDO."},
+        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla nivel aceite. Reemplazar filtro Donaldson P553771 instalado e inspeccionar sensor analógico VDO."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Alarma Alta Temperatura Agua", "SINTOMA": "Aviso de advertencia y posterior parada (>100ºC)", "SOLUCION": "Comprobar correa de ventilador Poly-V. Limpiar celdas exteriores del radiador y verificar que el nivel en botella es correcto."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Motor gira pero no arranca", "SINTOMA": "Fallo al iniciar en modo Prueba (T) o Manual desde la GC M02-C", "SOLUCION": "Purgar circuito de combustible desde prefiltro, revisar fusible de alimentación del solenoide de pare en motor Deutz BF 6M 1013 E."},
 
@@ -671,6 +671,33 @@ with tab3:
         for idx, row in maint_m.iterrows():
             with st.expander(f"⏱️ {row['INTERVALO']}"):
                 st.write(f"**Tarea:** {row['TAREA']}")
+
+    st.markdown("---")
+    st.markdown("### 🧰 Protocolo de Taller y Seguridad (Guía para Operarios y Ayudantes)")
+    
+    with st.expander("🛢️ **PROCEDIMIENTO PASO A PASO: CAMBIO DE ACEITE Y FILTROS DE ACEITE**", expanded=False):
+        st.markdown("""
+        1. **Drenaje en Caliente:** Arrancar el motor 5-10 minutos antes para templar el aceite. Abrir la válvula/tapón de drenaje y dejar escurrir en recipiente de residuos.
+        2. **Retirar Filtros Viejos:** Aflojar con llave de cadena/zunchos mientras el cárter termina de gotear.
+        3. **Cierre de Drenaje:** Limpiar el tapón, colocar arandela nueva (o cerrar grifo de drenaje) y apretar al par.
+        4. **⚠️ PRE-LLENAR FILTROS DE ACEITE (OBLIGATORIO):** Llenar los filtros nuevos con aceite limpio por el orificio central antes de montarlos. Untar la junta de goma con aceite limpio.
+        5. **Apriete Manual:** Roscar hasta que la junta toque la base y dar **3/4 de vuelta adicional a mano**. *¡Nunca apretar filtros nuevos con llave de cadena!*
+        6. **Llenado y Control:** Verter el volumen de aceite especificado en la Ficha Técnica. Arrancar 10 segundos, verificar presión en pantalla y revisar nivel final en varilla tras 5 min de reposo.
+        """)
+
+    with st.expander("⛽ **PROCEDIMIENTO PASO A PASO: FILTROS DE COMBUSTIBLE Y PURGADO**", expanded=False):
+        st.error("🚨 **REGLA DE ORO PROHIBIDA:** ¡NUNCA PRE-LLENAR LOS FILTROS DE GASOIL DIRECTAMENTE DESDE LA GARRAFA! Introducirías micropartículas sin filtrar directamente a la rampa Common Rail / Inyectores.")
+        st.markdown("""
+        1. **Identificar Circuito:** Distinguir entre **Prefiltro Decantador de Agua** (grueso, con cazoleta) y **Filtro Principal / Secundario** (fino, cerca del motor).
+        2. **Cambio de Juntas O-Ring:** Sustituir siempre las juntas de goma viejas por las nuevas de la caja. Lubricar las juntas con gasoil limpio.
+        3. **Montaje en Seco:** Roscar los filtros de gasoil nuevos **secos** y apretar a mano (contacto base + 3/4 vuelta).
+        4. **Purgado Manual de Aire:**
+           * Aflojar el tornillo de purga del cabezal (1-2 vueltas).
+           * Accionar la bomba/émbolo de cebado manual hasta que salga un **chorro continuo de gasoil sin burbujas de aire**.
+           * Sin dejar de bombear en la última carrera, apretar el tornillo de purga.
+           * Dar 5 bombadas extra hasta que la bomba manual quede dura (presurizada).
+        5. **Comprobación:** Arrancar en MANUAL y revisar con linterna durante 2 minutos que no hay goteos ni tomas de aire.
+        """)
 
 with tab4:
     st.markdown("### Guía de Averías y Diagnóstico")
