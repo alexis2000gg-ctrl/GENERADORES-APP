@@ -465,9 +465,9 @@ def load_data():
         {"ID_GRUPO": "G-005", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Inspeccionar tensión de correa de transmisión y soplado exterior del radiador."},
         {"ID_GRUPO": "G-005", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante orgánico CAT ELC y comprobación de inyectores Common Rail."},
 
-        # G-006 (ACTUALIZADO CON DATOS DE CAMPO)
+        # G-006 (ACTUALIZADO - LIMPIO DE ADVERTENCIA)
         {"ID_GRUPO": "G-006", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter Deutz 1013 (20L), vaso de expansión refrigerante (27L) y purgar agua del decantador P550900."},
-        {"ID_GRUPO": "G-006", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 20L de aceite Deutz 15W-40. Cambiar filtro Donaldson P553771 (NUNCA usar MANN W 962/8). Sustituir decantador P550900 (montar en seco, sin prellenar)."},
+        {"ID_GRUPO": "G-006", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 20L de aceite Deutz 15W-40. Cambiar filtro Donaldson P553771. Sustituir decantador P550900 (montar en seco, sin prellenar)."},
         {"ID_GRUPO": "G-006", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir cartucho de aire Donaldson P782104 y revisar el estado visual de la correa de transmisión / bomba de agua."},
         {"ID_GRUPO": "G-006", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante orgánico y revisión de presiones y reglaje en bombas de inyección unitarias."},
 
@@ -489,9 +489,9 @@ def load_data():
         {"ID_GRUPO": "G-009", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir filtro de aire CAT 458-1093. Soplar radiador y revisar estado visual de la correa de accesorios."},
         {"ID_GRUPO": "G-009", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 21L de líquido refrigerante CAT ELC y comprobación general del sistema eléctrico."},
 
-        # G-010 (ACTUALIZADO CON DATOS DE CAMPO)
+        # G-010 (ACTUALIZADO - LIMPIO DE ADVERTENCIA)
         {"ID_GRUPO": "G-010", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite cárter Deutz 1013 (20L), vaso de expansión refrigerante (27L) y purgar agua del decantador P550900."},
-        {"ID_GRUPO": "G-010", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 20L de aceite Deutz 15W-40. Cambiar filtro Donaldson P553771 (NUNCA usar MANN W 962/8). Sustituir decantador P550900 (montar en seco, sin prellenar)."},
+        {"ID_GRUPO": "G-010", "INTERVALO": "Cada 500 Horas / 12 Meses", "TAREA": "Sustituir 20L de aceite Deutz 15W-40. Cambiar filtro Donaldson P553771. Sustituir decantador P550900 (montar en seco, sin prellenar)."},
         {"ID_GRUPO": "G-010", "INTERVALO": "Cada 1.000 Horas / 2 Años", "TAREA": "Sustituir cartucho de aire Donaldson P782104 y revisar el estado visual de la correa de transmisión / bomba de agua."},
         {"ID_GRUPO": "G-010", "INTERVALO": "Cada 2.000 Horas / 4 Años", "TAREA": "Sustitución completa de 27L de anticongelante orgánico y revisión de presiones en bombas de inyección unitarias."},
 
@@ -553,8 +553,8 @@ def load_data():
         {"ID_GRUPO": "G-005", "CODIGO_ERROR": "High Coolant Temperature Alarm", "SINTOMA": "Temperatura de agua superior a 98°C bajo carga", "SOLUCION": "Comprobar nivel en vaso de expansión (27L CAT ELC), limpiar radiador exterior y verificar correa de ventilador."},
         {"ID_GRUPO": "G-005", "CODIGO_ERROR": "Fail to Start / Low Battery Voltage", "SINTOMA": "Intento de arranque fallido en cuadro GCCP 1.2", "SOLUCION": "Comprobar cargador de baterías de 24V del cuadro, bornes sulfatados o presencia de aire en el circuito de gasoil Common Rail."},
 
-        # G-006 (ACTUALIZADO CON AVISO FILTRO)
-        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla de nivel. Reemplazar filtro Donaldson P553771 (¡ATENCIÓN! Si usas el W 962/8 vaciará todo el cárter por la junta) e inspeccionar sensor analógico VDO."},
+        # G-006 (ACTUALIZADO - LIMPIO DE ADVERTENCIA)
+        {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Disparo Presión Aceite (Display PRAMAC)", "SINTOMA": "Parada inmediata al coger carga y mensaje luminoso rojo de aceite", "SOLUCION": "Verificar varilla de nivel. Reemplazar filtro Donaldson P553771 e inspeccionar sensor analógico VDO."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Alarma Alta Temperatura Agua", "SINTOMA": "Aviso de advertencia y posterior parada (>100ºC)", "SOLUCION": "Comprobar correa de ventilador Poly-V. Limpiar celdas exteriores del radiador y verificar que el nivel en botella es correcto."},
         {"ID_GRUPO": "G-006", "CODIGO_ERROR": "Motor gira pero no arranca", "SINTOMA": "Fallo al iniciar en modo Prueba (T) o Manual desde la GC M02-C", "SOLUCION": "Purgar circuito de combustible desde prefiltro, revisar fusible de alimentación del solenoide de pare en motor Deutz BF 6M 1013 E."},
 
@@ -573,8 +573,8 @@ def load_data():
         {"ID_GRUPO": "G-009", "CODIGO_ERROR": "CAT High Coolant Temp", "SINTOMA": "Temperatura del refrigerante por encima de 98°C", "SOLUCION": "Comprobar nivel en depósito (21L CAT ELC), limpiar celdas del radiador y verificar tensión de la correa de la bomba."},
         {"ID_GRUPO": "G-009", "CODIGO_ERROR": "Fuel Rail Pressure Low", "SINTOMA": "Fallo de arranque o tirones al asumir carga en grupo DE165E0", "SOLUCION": "Sustituir prefiltro separador CAT 478-1422 y filtro secundario CAT 389-1085 para purgar impurezas en Common Rail."},
 
-        # G-010 (ACTUALIZADO CON AVISO FILTRO)
-        {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Disparo Presión Aceite (Panel AC21)", "SINTOMA": "Parada del generador por baja presión de aceite en motor Deutz", "SOLUCION": "Revisar varilla, sustituir filtro de aceite Deutz 01182912 / Donaldson P553771 (Evitar filtro erróneo W 962/8) y comprobar presostato."},
+        # G-010 (ACTUALIZADO - LIMPIO DE ADVERTENCIA)
+        {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Disparo Presión Aceite (Panel AC21)", "SINTOMA": "Parada del generador por baja presión de aceite en motor Deutz", "SOLUCION": "Revisar varilla, sustituir filtro de aceite Deutz 01182912 / Donaldson P553771 y comprobar presostato."},
         {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Alarma Alta Temperatura de Agua", "SINTOMA": "Sobrecalentamiento (>100°C) registrado en centralita Pramac", "SOLUCION": "Limpiar celdas del radiador, comprobar nivel de refrigerante y verificar tensión de la correa del ventilador."},
         {"ID_GRUPO": "G-010", "CODIGO_ERROR": "Fallo de Arranque / Solenoide", "SINTOMA": "El motor de arranque gira pero el grupo no enciende", "SOLUCION": "Purgar aire en el circuito de gasoil, revisar prefiltro decantador y comprobar fusible de alimentación de la bomba inyectora."},
 
