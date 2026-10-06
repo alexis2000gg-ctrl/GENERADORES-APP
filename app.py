@@ -37,9 +37,9 @@ def load_data():
             "MARCA": "HIMOINSA",
             "MODELO_GRUPO": "EST-STO",
             "SERIE_GRUPO": "9710001716",
-            "MARCA_MOTOR": "IVECO",
-            "MODELO_MOTOR": "AIFO 8281SRJ26 (V8 Turbo)",
-            "SERIE_MOTOR": "385320",
+            "MARCA_MOTOR": "IVECO AIFO",
+            "MODELO_MOTOR": "8281 SRI 26.02 A-581 (V8 Turbo)",
+            "SERIE_MOTOR": "385820",
             "ALTERNADOR": "MECC ALTE ECN 40 5B/4",
             "SERIE_ALTERNADOR": "706253",
             "POTENCIA_PRIME": "440 kVA / 352 kW",
@@ -369,11 +369,12 @@ def load_data():
         {"ID_GRUPO": "G-001", "TIPO": "Prefiltro Decantador Gasoil", "OEM / ORIGINAL": "Volvo 21380475", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609 / 901-228", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
         {"ID_GRUPO": "G-001", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Volvo 21834205", "MANN-FILTER": "C 30 1530", "FLEETGUARD": "AF26163", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS5387"},
 
-        # G-002 IVECO AIFO 8281SRJ26 (V8)
+        # G-002 IVECO AIFO 8281 SRI 26.02 A-581 (V8)
         {"ID_GRUPO": "G-002", "TIPO": "Filtro Aceite Principal (x2)", "OEM / ORIGINAL": "Iveco 1907584 / 2992242", "MANN-FILTER": "W 11 102", "FLEETGUARD": "LF3880", "DONALDSON": "P550425", "FG WILSON": "10000-51229 / 901-102", "BALDWIN / OTRAS": "BALDWIN B7120"},
         {"ID_GRUPO": "G-002", "TIPO": "Filtro Gasoil Principal (x2)", "OEM / ORIGINAL": "Iveco 1902138", "MANN-FILTER": "WK 842", "FLEETGUARD": "FF5052", "DONALDSON": "P550008", "FG WILSON": "10000-00339 / 901-202", "BALDWIN / OTRAS": "BALDWIN BF825"},
         {"ID_GRUPO": "G-002", "TIPO": "Prefiltro Decantador Gasoil", "OEM / ORIGINAL": "Iveco 1908547", "MANN-FILTER": "WK 1060", "FLEETGUARD": "FS1251", "DONALDSON": "P551329", "FG WILSON": "10000-12609 / 901-228", "BALDWIN / OTRAS": "BALDWIN BF1212"},
         {"ID_GRUPO": "G-002", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Himoinsa 1903210 / Iveco 1903210", "MANN-FILTER": "C 30 850/2", "FLEETGUARD": "AF25223", "DONALDSON": "P182054", "FG WILSON": "996-452 / 901-016", "BALDWIN / OTRAS": "BALDWIN RS3518"},
+        {"ID_GRUPO": "G-002", "TIPO": "Filtro Agua / Refrigerante", "OEM / ORIGINAL": "Iveco 1901776", "MANN-FILTER": "WA 940/1", "FLEETGUARD": "WF2071", "DONALDSON": "P552071", "FG WILSON": "10000-00054", "BALDWIN / OTRAS": "BALDWIN BW5071"},
         {"ID_GRUPO": "G-002", "TIPO": "Correa Ventilador / Alternador", "OEM / ORIGINAL": "Iveco 4841793", "MANN-FILTER": "GATES 8554-10825", "FLEETGUARD": "DAYCO 13A1075C", "DONALDSON": "CONTITECH AVX13X1075", "FG WILSON": "915-020", "BALDWIN / OTRAS": "OPTIBELT AVX 13 x 1075"},
 
         # G-003 DEUTZ BF 8 M 1015 CP (V8)
@@ -471,7 +472,7 @@ def load_data():
 
         # G-002
         {"ID_GRUPO": "G-002", "INTERVALO": "Diario / Antes de Arranque", "TAREA": "Verificar nivel de aceite Cárter IVECO V8 (35L) y nivel de radiador. Purgar condensados de cazoleta de gasoil."},
-        {"ID_GRUPO": "G-002", "INTERVALO": "Cada 400 Horas / 12 Meses", "TAREA": "Cambio de 35L aceite 15W-40 ACEA E3/E5. Sustituir 2 filtros de aceite W11102 y par de filtros de combustible WK 842."},
+        {"ID_GRUPO": "G-002", "INTERVALO": "Cada 400 Horas / 12 Meses", "TAREA": "Cambio de 35L aceite 15W-40 ACEA E3/E5. Sustituir 2 filtros de aceite W11102, par de filtros de combustible WK 842 y cartucho de agua WA 940/1."},
         {"ID_GRUPO": "G-002", "INTERVALO": "Cada 800 Horas / 2 Años", "TAREA": "Sustituir filtro de aire C 30 850/2. Ajuste de taqués en culatas de bloque V8 AIFO."},
         {"ID_GRUPO": "G-002", "INTERVALO": "Cada 1.500 Horas / 3 Años", "TAREA": "Cambio de refrigerante al 50% (50L) y revisión de la bomba de agua de engranajes."},
 
@@ -569,7 +570,7 @@ def load_data():
 
         # G-002
         {"ID_GRUPO": "G-002", "CODIGO_ERROR": "Alarma Presión Aceite Cárter V8", "SINTOMA": "Caída de presión al subir temperatura de motor AIFO", "SOLUCION": "Comprobar grado de viscosidad (usar 15W-40 E3/E5). Cambiar pares de filtros W11102 o revisar válvula reguladora de bomba de aceite."},
-        {"ID_GRUPO": "G-002", "CODIGO_ERROR": "Sobretemperatura Agua en Culatas", "SINTOMA": "Parada por termostato en cuadro Himoinsa CEC7", "SOLUCION": "Limpiar radiador frontal bloqueado por polvo, tensar correa de la bomba de agua 4841793 o cambiar termostatos mecánicos."},
+        {"ID_GRUPO": "G-002", "CODIGO_ERROR": "Sobretemperatura Agua en Culatas", "SINTOMA": "Parada por termostato en cuadro Himoinsa CEC7", "SOLUCION": "Limpiar radiador frontal bloqueado por polvo, tensar correa de la bomba de agua 4841793, sustituir cartucho de agua WA 940/1 o cambiar termostatos mecánicos."},
         {"ID_GRUPO": "G-002", "CODIGO_ERROR": "Fallo de Inyección / Humo Blanco", "SINTOMA": "Inestabilidad en ralentí y tirones al coger carga de 440 kVA", "SOLUCION": "Sustituir cartuchos de gasoil WK 842, purgar aire en la bomba lineal Bosch e inspeccionar inyectores de la bancada V8."},
 
         # G-003
