@@ -1,8 +1,59 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="Gestión de Flota de Generadores", page_icon="⚡", layout="wide")
+# ==========================================
+# 🖼️ LOGO VECTORIAL SVG (OPCIÓN 2 SELECCIONADA)
+# ==========================================
+LOGO_SVG = """
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 130" width="100%">
+  <g transform="translate(10, 15)">
+    <!-- Bancada / Chasis -->
+    <rect x="5" y="80" width="95" height="7" rx="2" fill="#1E293B"/>
+    <rect x="12" y="74" width="10" height="6" fill="#389896"/>
+    <rect x="83" y="74" width="10" height="6" fill="#389896"/>
+    <!-- Radiador / Motor (Izquierda) -->
+    <rect x="10" y="28" width="22" height="46" rx="2" fill="none" stroke="#389896" stroke-width="3"/>
+    <line x1="15" y1="34" x2="27" y2="34" stroke="#389896" stroke-width="2"/>
+    <line x1="15" y1="42" x2="27" y2="42" stroke="#389896" stroke-width="2"/>
+    <line x1="15" y1="50" x2="27" y2="50" stroke="#389896" stroke-width="2"/>
+    <line x1="15" y1="58" x2="27" y2="58" stroke="#389896" stroke-width="2"/>
+    <!-- Bloque Motor Cárter -->
+    <rect x="32" y="38" width="28" height="36" rx="3" fill="#389896"/>
+    <!-- Alternador Cilíndrico (Derecha) -->
+    <rect x="60" y="32" width="32" height="42" rx="5" fill="none" stroke="#1E293B" stroke-width="3"/>
+    <line x1="76" y1="32" x2="76" y2="74" stroke="#1E293B" stroke-width="2"/>
+    <!-- Símbolo Eléctrico / Rayo -->
+    <polygon points="50,12 38,38 48,38 42,60 60,30 49,30" fill="#0D9488"/>
+  </g>
 
+  <!-- Tipografía -->
+  <text x="125" y="44" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="900" fill="#1E293B" letter-spacing="1">MONTAJES ELÉCTRICOS <tspan fill="#389896">MATOS</tspan></text>
+  <text x="126" y="72" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="800" fill="#0D9488" letter-spacing="4.5">DIVISIÓN GRUPOS ELECTRÓGENOS</text>
+</svg>
+"""
+
+st.set_page_config(
+    page_title="MONTAJES ELÉCTRICOS MATOS — Gestión de Flota", 
+    page_icon="⚡", 
+    layout="wide"
+)
+
+# Renderizado de la Cabecera con Logo Corporativo
+col_logo, col_titulo = st.columns([2, 4])
+
+with col_logo:
+    st.image(LOGO_SVG, use_container_width=True)
+
+with col_titulo:
+    st.title("⚡ Gestión de Flota de Generadores")
+    st.caption("Sistema de Control Técnico, Mantenimiento Preventivo y Diagnóstico de Taller")
+
+st.markdown("---")
+
+
+# ==========================================
+# 💾 CARGA Y CACHÉ DE DATOS COMPLETA
+# ==========================================
 @st.cache_data
 def load_data():
     grupos = pd.DataFrame([
@@ -647,8 +698,10 @@ def load_data():
 
     return grupos, repuestos, mantenimientos, averias
 
-st.title("⚡ Gestión de Flota de Generadores")
 
+# ==========================================
+# 🎛️ NAVEGACIÓN Y FILTROS
+# ==========================================
 grupos, repuestos, mantenimientos, averias = load_data()
 
 st.sidebar.header("🏢 Filtro de Navegación")
@@ -667,6 +720,9 @@ grupo_id = selected_grupo["ID_GRUPO"]
 
 st.subheader(f"📍 {selected_grupo['UBICACIÓN']} — {selected_grupo['MARCA']}")
 
+# ==========================================
+# 📑 PESTAÑAS DE INFORMACIÓN
+# ==========================================
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "📋 Ficha Técnica", 
     "📦 Repuestos Multimarca", 
@@ -783,10 +839,7 @@ with tab6:
     # Búsqueda de Repuestos
     query_repuesto = st.text_input("🔍 Buscar Referencia de Repuesto (Ej: 1R-1808, W 11 102, P550529, Baudouin):", "")
     if query_repuesto:
-        # Cruce con grupos para mostrar ubicación y cliente
         repuestos_full = repuestos.merge(grupos[["ID_GRUPO", "CLIENTE", "UBICACIÓN", "NOMBRE_GRUPO"]], on="ID_GRUPO")
-        
-        # Filtrado en todas las columnas numéricas y de texto
         mask = repuestos_full.astype(str).apply(lambda row: row.str.contains(query_repuesto, case=False, na=False)).any(axis=1)
         res_repuestos = repuestos_full[mask]
         
@@ -806,7 +859,6 @@ with tab6:
     query_averia = st.text_input("🚨 Buscar Código de Error o Síntoma (Ej: E360, PID 100, Presión, Temperatura):", "")
     if query_averia:
         averias_full = averias.merge(grupos[["ID_GRUPO", "CLIENTE", "UBICACIÓN", "NOMBRE_GRUPO"]], on="ID_GRUPO")
-        
         mask_av = averias_full.astype(str).apply(lambda row: row.str.contains(query_averia, case=False, na=False)).any(axis=1)
         res_averias = averias_full[mask_av]
         
