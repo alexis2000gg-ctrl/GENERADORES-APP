@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="Gestión de Flota de Generadores", page_icon="⚡", layout="centered")
+st.set_page_config(page_title="Gestión de Flota de Generadores", page_icon="⚡", layout="wide")
 
+@st.cache_data
 def load_data():
     grupos = pd.DataFrame([
         # --- HOTELES DUNAS ---
@@ -408,13 +409,13 @@ def load_data():
         {"ID_GRUPO": "G-007", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
         {"ID_GRUPO": "G-007", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"},
 
-        # G-008 CATERPILLAR DE200E0 (C7.1) - LIDL Tamaraceite
+        # G-008 CATERPILLAR DE200E0 (C7.1)
         {"ID_GRUPO": "G-008", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-008", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
         {"ID_GRUPO": "G-008", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
         {"ID_GRUPO": "G-008", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"},
 
-        # G-009 CATERPILLAR DE165E0 (C7.1) - LIDL Miller Bajo
+        # G-009 CATERPILLAR DE165E0 (C7.1)
         {"ID_GRUPO": "G-009", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-009", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
         {"ID_GRUPO": "G-009", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
@@ -426,25 +427,25 @@ def load_data():
         {"ID_GRUPO": "G-010", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Deutz 04253598", "MANN-FILTER": "WK 10 002 z", "FLEETGUARD": "FS19820", "DONALDSON": "P550900", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
         {"ID_GRUPO": "G-010", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Deutz 04253839", "MANN-FILTER": "C 25 710", "FLEETGUARD": "AF25708", "DONALDSON": "P782104", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"},
 
-        # G-011 PRAMAC GDW295B (BAUDOUIN 6M16) - LIDL Maspalomas
+        # G-011 PRAMAC GDW295B (BAUDOUIN 6M16)
         {"ID_GRUPO": "G-011", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "Baudouin 16224830K", "MANN-FILTER": "W 11 102/16", "FLEETGUARD": "LF4054", "DONALDSON": "P553771", "FG WILSON": "10000-51229", "BALDWIN / OTRAS": "BALDWIN B7180"},
         {"ID_GRUPO": "G-011", "TIPO": "Filtro Gasoil Principal", "OEM / ORIGINAL": "Baudouin 16232128S", "MANN-FILTER": "WK 940/20", "FLEETGUARD": "FF5485", "DONALDSON": "P553004", "FG WILSON": "10000-00339", "BALDWIN / OTRAS": "BALDWIN BF7632"},
         {"ID_GRUPO": "G-011", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Baudouin 16232127R", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
         {"ID_GRUPO": "G-011", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Baudouin 16232183C", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF26159", "DONALDSON": "P604273", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"},
 
-        # G-012 CATERPILLAR DE165E0 (C7.1) - LIDL Antigua El Castillo
+        # G-012 CATERPILLAR DE165E0 (C7.1)
         {"ID_GRUPO": "G-012", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-012", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
         {"ID_GRUPO": "G-012", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
         {"ID_GRUPO": "G-012", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"},
 
-        # G-013 CATERPILLAR DE200E0 (C7.1) - LIDL Corralejo El Guirre
+        # G-013 CATERPILLAR DE200E0 (C7.1)
         {"ID_GRUPO": "G-013", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-013", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
         {"ID_GRUPO": "G-013", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
         {"ID_GRUPO": "G-013", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "CAT 458-1093 / 110-6326", "MANN-FILTER": "C 21 004", "FLEETGUARD": "AF25557", "DONALDSON": "P608533", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3870"},
 
-        # G-014 CATERPILLAR DE220E0 (C7.1) - LIDL Puerto del Rosario
+        # G-014 CATERPILLAR DE220E0 (C7.1)
         {"ID_GRUPO": "G-014", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "CAT 458-7518 / 1R-1808", "MANN-FILTER": "W 950/38", "FLEETGUARD": "LF16015", "DONALDSON": "P550529", "FG WILSON": "10000-51230", "BALDWIN / OTRAS": "BALDWIN B7299"},
         {"ID_GRUPO": "G-014", "TIPO": "Filtro Gasoil Secundario", "OEM / ORIGINAL": "CAT 389-1085", "MANN-FILTER": "WK 8117", "FLEETGUARD": "FF5788", "DONALDSON": "P551085", "FG WILSON": "10000-59651", "BALDWIN / OTRAS": "BALDWIN BF9880"},
         {"ID_GRUPO": "G-014", "TIPO": "Prefiltro Separador Agua Gasoil", "OEM / ORIGINAL": "CAT 478-1422", "MANN-FILTER": "WK 8156", "FLEETGUARD": "FS20007", "DONALDSON": "P551422", "FG WILSON": "20000-12699", "BALDWIN / OTRAS": "BALDWIN BF46062"},
@@ -456,7 +457,7 @@ def load_data():
         {"ID_GRUPO": "G-015", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Baudouin 16232127R", "MANN-FILTER": "WK 10002 x", "FLEETGUARD": "FS19735", "DONALDSON": "P551010", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
         {"ID_GRUPO": "G-015", "TIPO": "Filtro Aire Principal", "OEM / ORIGINAL": "Baudouin 16232183C", "MANN-FILTER": "C 30 1500", "FLEETGUARD": "AF26159", "DONALDSON": "P604273", "FG WILSON": "901-048", "BALDWIN / OTRAS": "BALDWIN RS3998"},
 
-        # G-016 PRAMAC GSW150D (DEUTZ BF4M1013FC) - LIDL Vecindario
+        # G-016 PRAMAC GSW150D (DEUTZ BF4M1013FC)
         {"ID_GRUPO": "G-016", "TIPO": "Filtro Aceite Motor", "OEM / ORIGINAL": "Deutz 01182912", "MANN-FILTER": "W 962/8 / W 11 102/16", "FLEETGUARD": "LF3997", "DONALDSON": "P553771", "FG WILSON": "10000-51229", "BALDWIN / OTRAS": "BALDWIN B7180"},
         {"ID_GRUPO": "G-016", "TIPO": "Filtro Gasoil Principal", "OEM / ORIGINAL": "Deutz 01181917", "MANN-FILTER": "WK 940/5", "FLEETGUARD": "FF5485", "DONALDSON": "P550345", "FG WILSON": "10000-00339", "BALDWIN / OTRAS": "BALDWIN BF7632"},
         {"ID_GRUPO": "G-016", "TIPO": "Prefiltro Sep. Agua Gasoil", "OEM / ORIGINAL": "Deutz 04253598", "MANN-FILTER": "WK 10 002 z", "FLEETGUARD": "FS19820", "DONALDSON": "P550900", "FG WILSON": "10000-12609", "BALDWIN / OTRAS": "BALDWIN BF1385-SPS"},
@@ -666,7 +667,14 @@ grupo_id = selected_grupo["ID_GRUPO"]
 
 st.subheader(f"📍 {selected_grupo['UBICACIÓN']} — {selected_grupo['MARCA']}")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["📋 Ficha Técnica", "📦 Repuestos Multimarca", "🛠️ Mantenimiento", "🚨 Averías", "📖 Manuales"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    "📋 Ficha Técnica", 
+    "📦 Repuestos Multimarca", 
+    "🛠️ Mantenimiento", 
+    "🚨 Averías", 
+    "📖 Manuales", 
+    "🔎 Buscador Global"
+])
 
 with tab1:
     st.markdown("### Datos Técnicos Oficiales")
@@ -767,3 +775,46 @@ with tab5:
     st.markdown("### 📖 Manuales y Documentación Taller")
     st.write("Acceso a la carpeta compartida de Google Drive del cliente:")
     st.link_button(f"📂 Abrir Carpeta de Manuales en Google Drive ({selected_grupo['CLIENTE']})", selected_grupo["MANUAL_URL"])
+
+with tab6:
+    st.markdown("### 🔎 Búsqueda Cruzada en Toda la Flota (16 Generadores)")
+    st.caption("Escribe la referencia de un filtro, número de parte, código de fallo o síntoma para localizar el equipo correspondiente en cualquier cliente.")
+    
+    # Búsqueda de Repuestos
+    query_repuesto = st.text_input("🔍 Buscar Referencia de Repuesto (Ej: 1R-1808, W 11 102, P550529, Baudouin):", "")
+    if query_repuesto:
+        # Cruce con grupos para mostrar ubicación y cliente
+        repuestos_full = repuestos.merge(grupos[["ID_GRUPO", "CLIENTE", "UBICACIÓN", "NOMBRE_GRUPO"]], on="ID_GRUPO")
+        
+        # Filtrado en todas las columnas numéricas y de texto
+        mask = repuestos_full.astype(str).apply(lambda row: row.str.contains(query_repuesto, case=False, na=False)).any(axis=1)
+        res_repuestos = repuestos_full[mask]
+        
+        if not res_repuestos.empty:
+            st.success(f"Se encontraron **{len(res_repuestos)}** coincidencia(s) en la flota:")
+            st.dataframe(
+                res_repuestos[["CLIENTE", "UBICACIÓN", "TIPO", "OEM / ORIGINAL", "MANN-FILTER", "FLEETGUARD", "DONALDSON", "FG WILSON", "BALDWIN / OTRAS"]], 
+                use_container_width=True, 
+                hide_index=True
+            )
+        else:
+            st.warning("No se encontraron repuestos con esa referencia.")
+
+    st.markdown("---")
+
+    # Búsqueda de Averías
+    query_averia = st.text_input("🚨 Buscar Código de Error o Síntoma (Ej: E360, PID 100, Presión, Temperatura):", "")
+    if query_averia:
+        averias_full = averias.merge(grupos[["ID_GRUPO", "CLIENTE", "UBICACIÓN", "NOMBRE_GRUPO"]], on="ID_GRUPO")
+        
+        mask_av = averias_full.astype(str).apply(lambda row: row.str.contains(query_averia, case=False, na=False)).any(axis=1)
+        res_averias = averias_full[mask_av]
+        
+        if not res_averias.empty:
+            st.success(f"Se encontraron **{len(res_averias)}** coincidencia(s) de averías/síntomas:")
+            for idx, row in res_averias.iterrows():
+                with st.expander(f"📍 **{row['CLIENTE']} - {row['UBICACIÓN']}** | 🔴 {row['CODIGO_ERROR']} - {row['SINTOMA']}"):
+                    st.write(f"**Grupo Electrógeno:** {row['NOMBRE_GRUPO']}")
+                    st.write(f"**Solución de taller:** {row['SOLUCION']}")
+        else:
+            st.warning("No se encontraron averías asociadas a ese término.")
